@@ -36,5 +36,6 @@ final comics = [
   Comic(title: 'ONE PIECE', author: '尾田栄一郎', imgUrl: '', startYear: 1997),
   Comic(title: 'ジョジョの奇妙な冒険', author: '荒木飛呂彦', imgUrl: '', startYear: 1986),
   Comic(title: 'HUNTERxHUNTER', author: '冨樫義博', imgUrl: '', startYear: 1998),
-  Comic(title: '嘘喰い', author: '迫稔雄', imgUrl: '', startYear: 2006)
+  Comic(title: '嘘喰い', author: '迫稔雄', imgUrl: '', startYear: 2006),
+  Comic(title: 'こちら葛飾区亀有公園前派出所', author: '秋本治', imgUrl: '', startYear: 1976)
 ];

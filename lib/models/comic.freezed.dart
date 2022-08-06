@@ -21,9 +21,13 @@ Comic _$ComicFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Comic {
   String get title => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
+  List<dynamic> get author => throw _privateConstructorUsedError;
   String get imgUrl => throw _privateConstructorUsedError;
+  String get publisher => throw _privateConstructorUsedError;
+  String get magazine => throw _privateConstructorUsedError;
   int get startYear => throw _privateConstructorUsedError;
+  List<dynamic> get books => throw _privateConstructorUsedError;
+  List<dynamic> get chapters => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +38,15 @@ mixin _$Comic {
 abstract class $ComicCopyWith<$Res> {
   factory $ComicCopyWith(Comic value, $Res Function(Comic) then) =
       _$ComicCopyWithImpl<$Res>;
-  $Res call({String title, String author, String imgUrl, int startYear});
+  $Res call(
+      {String title,
+      List<dynamic> author,
+      String imgUrl,
+      String publisher,
+      String magazine,
+      int startYear,
+      List<dynamic> books,
+      List<dynamic> chapters});
 }
 
 /// @nodoc
@@ -50,7 +62,11 @@ class _$ComicCopyWithImpl<$Res> implements $ComicCopyWith<$Res> {
     Object? title = freezed,
     Object? author = freezed,
     Object? imgUrl = freezed,
+    Object? publisher = freezed,
+    Object? magazine = freezed,
     Object? startYear = freezed,
+    Object? books = freezed,
+    Object? chapters = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -60,15 +76,31 @@ class _$ComicCopyWithImpl<$Res> implements $ComicCopyWith<$Res> {
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<dynamic>,
       imgUrl: imgUrl == freezed
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      publisher: publisher == freezed
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String,
+      magazine: magazine == freezed
+          ? _value.magazine
+          : magazine // ignore: cast_nullable_to_non_nullable
               as String,
       startYear: startYear == freezed
           ? _value.startYear
           : startYear // ignore: cast_nullable_to_non_nullable
               as int,
+      books: books == freezed
+          ? _value.books
+          : books // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      chapters: chapters == freezed
+          ? _value.chapters
+          : chapters // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
@@ -78,7 +110,15 @@ abstract class _$$_ComicCopyWith<$Res> implements $ComicCopyWith<$Res> {
   factory _$$_ComicCopyWith(_$_Comic value, $Res Function(_$_Comic) then) =
       __$$_ComicCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String author, String imgUrl, int startYear});
+  $Res call(
+      {String title,
+      List<dynamic> author,
+      String imgUrl,
+      String publisher,
+      String magazine,
+      int startYear,
+      List<dynamic> books,
+      List<dynamic> chapters});
 }
 
 /// @nodoc
@@ -95,7 +135,11 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res>
     Object? title = freezed,
     Object? author = freezed,
     Object? imgUrl = freezed,
+    Object? publisher = freezed,
+    Object? magazine = freezed,
     Object? startYear = freezed,
+    Object? books = freezed,
+    Object? chapters = freezed,
   }) {
     return _then(_$_Comic(
       title: title == freezed
@@ -103,17 +147,33 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res>
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       author: author == freezed
-          ? _value.author
+          ? _value._author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<dynamic>,
       imgUrl: imgUrl == freezed
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      publisher: publisher == freezed
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String,
+      magazine: magazine == freezed
+          ? _value.magazine
+          : magazine // ignore: cast_nullable_to_non_nullable
               as String,
       startYear: startYear == freezed
           ? _value.startYear
           : startYear // ignore: cast_nullable_to_non_nullable
               as int,
+      books: books == freezed
+          ? _value._books
+          : books // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      chapters: chapters == freezed
+          ? _value._chapters
+          : chapters // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
@@ -123,25 +183,54 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res>
 class _$_Comic implements _Comic {
   _$_Comic(
       {required this.title,
-      required this.author,
+      required final List<dynamic> author,
       required this.imgUrl,
-      required this.startYear});
+      required this.publisher,
+      required this.magazine,
+      required this.startYear,
+      required final List<dynamic> books,
+      required final List<dynamic> chapters})
+      : _author = author,
+        _books = books,
+        _chapters = chapters;
 
   factory _$_Comic.fromJson(Map<String, dynamic> json) =>
       _$$_ComicFromJson(json);
 
   @override
   final String title;
+  final List<dynamic> _author;
   @override
-  final String author;
+  List<dynamic> get author {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_author);
+  }
+
   @override
   final String imgUrl;
   @override
+  final String publisher;
+  @override
+  final String magazine;
+  @override
   final int startYear;
+  final List<dynamic> _books;
+  @override
+  List<dynamic> get books {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_books);
+  }
+
+  final List<dynamic> _chapters;
+  @override
+  List<dynamic> get chapters {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chapters);
+  }
 
   @override
   String toString() {
-    return 'Comic(title: $title, author: $author, imgUrl: $imgUrl, startYear: $startYear)';
+    return 'Comic(title: $title, author: $author, imgUrl: $imgUrl, publisher: $publisher, magazine: $magazine, startYear: $startYear, books: $books, chapters: $chapters)';
   }
 
   @override
@@ -150,9 +239,13 @@ class _$_Comic implements _Comic {
         (other.runtimeType == runtimeType &&
             other is _$_Comic &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.author, author) &&
+            const DeepCollectionEquality().equals(other._author, _author) &&
             const DeepCollectionEquality().equals(other.imgUrl, imgUrl) &&
-            const DeepCollectionEquality().equals(other.startYear, startYear));
+            const DeepCollectionEquality().equals(other.publisher, publisher) &&
+            const DeepCollectionEquality().equals(other.magazine, magazine) &&
+            const DeepCollectionEquality().equals(other.startYear, startYear) &&
+            const DeepCollectionEquality().equals(other._books, _books) &&
+            const DeepCollectionEquality().equals(other._chapters, _chapters));
   }
 
   @JsonKey(ignore: true)
@@ -160,9 +253,13 @@ class _$_Comic implements _Comic {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(author),
+      const DeepCollectionEquality().hash(_author),
       const DeepCollectionEquality().hash(imgUrl),
-      const DeepCollectionEquality().hash(startYear));
+      const DeepCollectionEquality().hash(publisher),
+      const DeepCollectionEquality().hash(magazine),
+      const DeepCollectionEquality().hash(startYear),
+      const DeepCollectionEquality().hash(_books),
+      const DeepCollectionEquality().hash(_chapters));
 
   @JsonKey(ignore: true)
   @override
@@ -180,20 +277,32 @@ class _$_Comic implements _Comic {
 abstract class _Comic implements Comic {
   factory _Comic(
       {required final String title,
-      required final String author,
+      required final List<dynamic> author,
       required final String imgUrl,
-      required final int startYear}) = _$_Comic;
+      required final String publisher,
+      required final String magazine,
+      required final int startYear,
+      required final List<dynamic> books,
+      required final List<dynamic> chapters}) = _$_Comic;
 
   factory _Comic.fromJson(Map<String, dynamic> json) = _$_Comic.fromJson;
 
   @override
   String get title;
   @override
-  String get author;
+  List<dynamic> get author;
   @override
   String get imgUrl;
   @override
+  String get publisher;
+  @override
+  String get magazine;
+  @override
   int get startYear;
+  @override
+  List<dynamic> get books;
+  @override
+  List<dynamic> get chapters;
   @override
   @JsonKey(ignore: true)
   _$$_ComicCopyWith<_$_Comic> get copyWith =>

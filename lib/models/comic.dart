@@ -7,9 +7,13 @@ part 'comic.g.dart';
 class Comic with _$Comic {
   factory Comic({
     required String title,
-    required String author,
+    required List author,
     required String imgUrl,
+    required String publisher,
+    required String magazine,
     required int startYear,
+    required List books,
+    required List chapters,
   }) = _Comic;
 
   factory Comic.fromJson(Map<String, dynamic> json) => _$ComicFromJson(json);

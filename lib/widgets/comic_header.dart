@@ -63,6 +63,8 @@ class ComicHeader extends StatelessWidget {
                         }
                       ],
                     ),
+                    Text('${comic.publisher}・${comic.startYear}'),
+                    comic.serializeState.stateTag
                   ],
                 ),
               ),

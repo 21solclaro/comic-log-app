@@ -35,12 +35,8 @@ class ComicPage extends StatelessWidget {
           },
           body: TabBarView(children: [
             const AboutTab(),
-            BooksTab(
-              comic: comic,
-            ),
-            ChaptersTab(
-              comic: comic,
-            ),
+            BooksTab(books: comic.books),
+            ChaptersTab(chapters: comic.chapters),
             const RelatedWorksTab()
           ]),
         ),

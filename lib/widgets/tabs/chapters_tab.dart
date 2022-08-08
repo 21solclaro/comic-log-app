@@ -1,19 +1,20 @@
-import 'package:comic_log_app/models/comic.dart';
+import 'package:comic_log_app/models/chapter.dart';
 import 'package:flutter/material.dart';
 
 class ChaptersTab extends StatelessWidget {
-  const ChaptersTab({Key? key, required this.comic}) : super(key: key);
+  const ChaptersTab({Key? key, required this.chapters}) : super(key: key);
 
-  final Comic comic;
+  final List<Chapter> chapters;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: comic.chapters.length,
+        itemCount: chapters.length,
         itemBuilder: ((context, index) {
           return ListTile(
-            leading: Text('${comic.chapters[index].volume}話'),
-            title: Text(comic.chapters[index].chapterTitle),
+            leading: Text('${chapters[index].volume}話'),
+            title: Text(chapters[index].chapterTitle),
+            trailing: chapters[index].chapterReadState.stateTag,
           );
         }));
   }

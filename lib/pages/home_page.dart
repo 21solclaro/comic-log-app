@@ -115,27 +115,39 @@ final comics = [
             imgUrl:
                 'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088725093/240/9784088725093.jpg',
             publishedAt: DateTime(1997, 12, 24),
-            isRead: true),
+            bookReadState: BookReadState.finished),
         Book(
-            volume: 2,
-            imgUrl:
-                'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088725444/240/9784088725444.jpg',
-            publishedAt: DateTime(1998, 4, 3),
-            isRead: true),
+          volume: 2,
+          imgUrl:
+              'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088725444/240/9784088725444.jpg',
+          publishedAt: DateTime(1998, 4, 3),
+          bookReadState: BookReadState.read,
+        ),
         Book(
-            volume: 3,
-            imgUrl:
-                'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088725697/240/9784088725697.jpg',
-            publishedAt: DateTime(1998, 6, 4),
-            isRead: true),
+          volume: 3,
+          imgUrl:
+              'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088725697/240/9784088725697.jpg',
+          publishedAt: DateTime(1998, 6, 4),
+          bookReadState: BookReadState.unread,
+        ),
       ],
       chapters: [
-        Chapter(volume: 1, chapterTitle: 'ROMANCE DAWN －冒険の夜明け－', isRead: true),
-        Chapter(volume: 2, chapterTitle: 'その男〝麦わらのルフィ〟', isRead: true),
-        Chapter(volume: 3, chapterTitle: '〝海賊狩りのゾロ〟登場', isRead: true),
-      ]),
+        Chapter(
+            volume: 1,
+            chapterTitle: 'ROMANCE DAWN －冒険の夜明け－',
+            chapterReadState: ChapterReadState.finished),
+        Chapter(
+            volume: 2,
+            chapterTitle: 'その男〝麦わらのルフィ〟',
+            chapterReadState: ChapterReadState.finished),
+        Chapter(
+            volume: 3,
+            chapterTitle: '〝海賊狩りのゾロ〟登場',
+            chapterReadState: ChapterReadState.finished),
+      ],
+      serializeState: SerializeState.serialize),
   Comic(
-      title: 'ジョジョの奇妙な冒険 PART7\nスティール・ボール・ラン',
+      title: 'ジョジョの奇妙な冒険 PART7 スティール・ボール・ラン',
       author: ['荒木飛呂彦'],
       imgUrl:
           'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736013/240/9784088736013.jpg',
@@ -143,16 +155,17 @@ final comics = [
       magazine: 'ウルトラジャンプ',
       startYear: 1986,
       books: [],
-      chapters: []),
+      chapters: [],
+      serializeState: SerializeState.finished),
   Comic(
       title: 'DEATH NOTE',
       author: ['大場つぐみ', '小畑健'],
-      // imgUrl:
-      //     'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736211/240/9784088736211.jpg',
-      imgUrl: '',
+      imgUrl:
+          'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736211/240/9784088736211.jpg',
       publisher: '集英社',
       magazine: '週刊少年ジャンプ',
       startYear: 2003,
       books: [],
-      chapters: []),
+      chapters: [],
+      serializeState: SerializeState.finished),
 ];

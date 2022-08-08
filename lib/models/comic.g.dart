@@ -13,6 +13,7 @@ _$_Comic _$$_ComicFromJson(Map<String, dynamic> json) => _$_Comic(
       publisher: json['publisher'] as String,
       magazine: json['magazine'] as String,
       startYear: json['startYear'] as int,
+      endYear: json['endYear'] as int,
       books: (json['books'] as List<dynamic>)
           .map((e) => Book.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -30,6 +31,7 @@ Map<String, dynamic> _$$_ComicToJson(_$_Comic instance) => <String, dynamic>{
       'publisher': instance.publisher,
       'magazine': instance.magazine,
       'startYear': instance.startYear,
+      'endYear': instance.endYear,
       'books': instance.books,
       'chapters': instance.chapters,
       'serializeState': _$SerializeStateEnumMap[instance.serializeState]!,

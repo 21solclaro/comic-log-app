@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class ComicPage extends StatelessWidget {
   const ComicPage({Key? key, required this.comic}) : super(key: key);
+
   final Comic comic;
 
   @override
@@ -34,7 +35,7 @@ class ComicPage extends StatelessWidget {
             ];
           },
           body: TabBarView(children: [
-            const AboutTab(),
+            AboutTab(comic: comic),
             BooksTab(books: comic.books),
             ChaptersTab(chapters: comic.chapters),
             const RelatedWorksTab()

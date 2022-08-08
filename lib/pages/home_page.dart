@@ -16,16 +16,17 @@ class HomePage extends ConsumerWidget {
     final isListView = ref.watch(isListViewProvider);
     return Scaffold(
         appBar: AppBar(
-          foregroundColor: Colors.grey,
           backgroundColor: Colors.white,
           actions: [
             IconButton(
+              color: isListView ? Colors.blue : Colors.grey,
               icon: const Icon(Icons.list),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = true;
               },
             ),
             IconButton(
+              color: isListView ? Colors.grey : Colors.blue,
               icon: const Icon(Icons.grid_view),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = false;
@@ -59,6 +60,7 @@ final comics = [
       publisher: '集英社',
       magazine: '週刊少年ジャンプ',
       startYear: 1997,
+      endYear: DateTime.now().year,
       books: [
         Book(
             volume: 1,
@@ -103,18 +105,21 @@ final comics = [
           'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736013/240/9784088736013.jpg',
       publisher: '集英社',
       magazine: 'ウルトラジャンプ',
-      startYear: 1986,
+      startYear: 2004,
+      endYear: 2011,
       books: [],
       chapters: [],
       serializeState: SerializeState.finished),
   Comic(
       title: 'DEATH NOTE',
       author: ['大場つぐみ', '小畑健'],
-      imgUrl:
-          'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736211/240/9784088736211.jpg',
+      imgUrl: '',
+      // imgUrl:
+      //     'https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088736211/240/9784088736211.jpg',
       publisher: '集英社',
       magazine: '週刊少年ジャンプ',
       startYear: 2003,
+      endYear: 2006,
       books: [],
       chapters: [],
       serializeState: SerializeState.finished),

@@ -13,40 +13,47 @@ class ComicHeader extends StatelessWidget {
         StretchMode.zoomBackground,
         StretchMode.blurBackground,
       ],
-      background: SizedBox(
-        height: 300,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 50, 10, 60),
-          child: Container(
-            // color: Colors.green,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  // color: Colors.blue,
-                  width: 160,
-                  height: 237,
-                  child: comic.imgUrl == ''
-                      ? Container(
-                          height: 140,
-                          width: 100,
-                          color: Colors.grey,
-                        )
-                      : Image(image: NetworkImage(comic.imgUrl)),
+      background: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 60, 0, 60),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Container(
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      spreadRadius: 1,
+                      blurRadius: 10.0,
+                      offset: Offset(5, 5),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 20),
-                Column(
+                width: 140,
+                height: 210,
+                child: comic.imgUrl == ''
+                    ? Container(
+                        width: 140,
+                        height: 210,
+                        color: Colors.grey,
+                      )
+                    : Image(image: NetworkImage(comic.imgUrl)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: SizedBox(
+                width: 200,
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(
-                      child: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          comic.title,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ),
+                    Text(
+                      comic.title,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     Row(
                       children: [
@@ -58,9 +65,9 @@ class ComicHeader extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

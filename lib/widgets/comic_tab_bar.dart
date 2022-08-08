@@ -5,8 +5,7 @@ class ComicTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.amber,
+    return const SizedBox(
       height: 40,
       child: TabBar(
         indicator: BoxDecoration(
@@ -17,20 +16,10 @@ class ComicTabBar extends StatelessWidget {
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
         unselectedLabelColor: Colors.grey,
         tabs: [
-          Tab(
-            child: Text(
-              'About',
-            ),
-          ),
-          Tab(
-            text: 'Book',
-          ),
-          Tab(
-            text: 'Chapter',
-          ),
-          Tab(
-            text: 'Relation',
-          )
+          Tab(text: 'About'),
+          Tab(text: 'Book'),
+          Tab(text: 'Chapter'),
+          Tab(text: 'Relation')
         ],
       ),
     );

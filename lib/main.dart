@@ -1,4 +1,5 @@
 import 'package:comic_log_app/pages/home_page.dart';
+import 'package:comic_log_app/pages/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const RootPage(),
     );
   }
 }

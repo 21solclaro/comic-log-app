@@ -9,12 +9,19 @@ part of 'chapter.dart';
 _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
       volume: json['volume'] as int,
       chapterTitle: json['chapterTitle'] as String,
-      isRead: json['isRead'] as bool,
+      chapterReadState:
+          $enumDecode(_$ChapterReadStateEnumMap, json['chapterReadState']),
     );
 
 Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     <String, dynamic>{
       'volume': instance.volume,
       'chapterTitle': instance.chapterTitle,
-      'isRead': instance.isRead,
+      'chapterReadState': _$ChapterReadStateEnumMap[instance.chapterReadState]!,
     };
+
+const _$ChapterReadStateEnumMap = {
+  ChapterReadState.read: 'read',
+  ChapterReadState.unread: 'unread',
+  ChapterReadState.finished: 'finished',
+};

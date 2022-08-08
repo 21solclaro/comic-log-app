@@ -23,7 +23,7 @@ mixin _$Book {
   int get volume => throw _privateConstructorUsedError;
   String get imgUrl => throw _privateConstructorUsedError;
   DateTime get publishedAt => throw _privateConstructorUsedError;
-  bool get isRead => throw _privateConstructorUsedError;
+  BookReadState get bookReadState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,11 @@ mixin _$Book {
 abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
-  $Res call({int volume, String imgUrl, DateTime publishedAt, bool isRead});
+  $Res call(
+      {int volume,
+      String imgUrl,
+      DateTime publishedAt,
+      BookReadState bookReadState});
 }
 
 /// @nodoc
@@ -50,7 +54,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object? volume = freezed,
     Object? imgUrl = freezed,
     Object? publishedAt = freezed,
-    Object? isRead = freezed,
+    Object? bookReadState = freezed,
   }) {
     return _then(_value.copyWith(
       volume: volume == freezed
@@ -65,10 +69,10 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      isRead: isRead == freezed
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
+      bookReadState: bookReadState == freezed
+          ? _value.bookReadState
+          : bookReadState // ignore: cast_nullable_to_non_nullable
+              as BookReadState,
     ));
   }
 }
@@ -78,7 +82,11 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
   factory _$$_BookCopyWith(_$_Book value, $Res Function(_$_Book) then) =
       __$$_BookCopyWithImpl<$Res>;
   @override
-  $Res call({int volume, String imgUrl, DateTime publishedAt, bool isRead});
+  $Res call(
+      {int volume,
+      String imgUrl,
+      DateTime publishedAt,
+      BookReadState bookReadState});
 }
 
 /// @nodoc
@@ -95,7 +103,7 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
     Object? volume = freezed,
     Object? imgUrl = freezed,
     Object? publishedAt = freezed,
-    Object? isRead = freezed,
+    Object? bookReadState = freezed,
   }) {
     return _then(_$_Book(
       volume: volume == freezed
@@ -110,10 +118,10 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      isRead: isRead == freezed
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
+      bookReadState: bookReadState == freezed
+          ? _value.bookReadState
+          : bookReadState // ignore: cast_nullable_to_non_nullable
+              as BookReadState,
     ));
   }
 }
@@ -125,7 +133,7 @@ class _$_Book implements _Book {
       {required this.volume,
       required this.imgUrl,
       required this.publishedAt,
-      required this.isRead});
+      required this.bookReadState});
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
@@ -136,11 +144,11 @@ class _$_Book implements _Book {
   @override
   final DateTime publishedAt;
   @override
-  final bool isRead;
+  final BookReadState bookReadState;
 
   @override
   String toString() {
-    return 'Book(volume: $volume, imgUrl: $imgUrl, publishedAt: $publishedAt, isRead: $isRead)';
+    return 'Book(volume: $volume, imgUrl: $imgUrl, publishedAt: $publishedAt, bookReadState: $bookReadState)';
   }
 
   @override
@@ -152,7 +160,8 @@ class _$_Book implements _Book {
             const DeepCollectionEquality().equals(other.imgUrl, imgUrl) &&
             const DeepCollectionEquality()
                 .equals(other.publishedAt, publishedAt) &&
-            const DeepCollectionEquality().equals(other.isRead, isRead));
+            const DeepCollectionEquality()
+                .equals(other.bookReadState, bookReadState));
   }
 
   @JsonKey(ignore: true)
@@ -162,7 +171,7 @@ class _$_Book implements _Book {
       const DeepCollectionEquality().hash(volume),
       const DeepCollectionEquality().hash(imgUrl),
       const DeepCollectionEquality().hash(publishedAt),
-      const DeepCollectionEquality().hash(isRead));
+      const DeepCollectionEquality().hash(bookReadState));
 
   @JsonKey(ignore: true)
   @override
@@ -182,7 +191,7 @@ abstract class _Book implements Book {
       {required final int volume,
       required final String imgUrl,
       required final DateTime publishedAt,
-      required final bool isRead}) = _$_Book;
+      required final BookReadState bookReadState}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
@@ -193,7 +202,7 @@ abstract class _Book implements Book {
   @override
   DateTime get publishedAt;
   @override
-  bool get isRead;
+  BookReadState get bookReadState;
   @override
   @JsonKey(ignore: true)
   _$$_BookCopyWith<_$_Book> get copyWith => throw _privateConstructorUsedError;

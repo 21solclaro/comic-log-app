@@ -22,7 +22,7 @@ Chapter _$ChapterFromJson(Map<String, dynamic> json) {
 mixin _$Chapter {
   int get volume => throw _privateConstructorUsedError;
   String get chapterTitle => throw _privateConstructorUsedError;
-  bool get isRead => throw _privateConstructorUsedError;
+  ChapterReadState get chapterReadState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,8 @@ mixin _$Chapter {
 abstract class $ChapterCopyWith<$Res> {
   factory $ChapterCopyWith(Chapter value, $Res Function(Chapter) then) =
       _$ChapterCopyWithImpl<$Res>;
-  $Res call({int volume, String chapterTitle, bool isRead});
+  $Res call(
+      {int volume, String chapterTitle, ChapterReadState chapterReadState});
 }
 
 /// @nodoc
@@ -48,7 +49,7 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
   $Res call({
     Object? volume = freezed,
     Object? chapterTitle = freezed,
-    Object? isRead = freezed,
+    Object? chapterReadState = freezed,
   }) {
     return _then(_value.copyWith(
       volume: volume == freezed
@@ -59,10 +60,10 @@ class _$ChapterCopyWithImpl<$Res> implements $ChapterCopyWith<$Res> {
           ? _value.chapterTitle
           : chapterTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      isRead: isRead == freezed
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
+      chapterReadState: chapterReadState == freezed
+          ? _value.chapterReadState
+          : chapterReadState // ignore: cast_nullable_to_non_nullable
+              as ChapterReadState,
     ));
   }
 }
@@ -73,7 +74,8 @@ abstract class _$$_ChapterCopyWith<$Res> implements $ChapterCopyWith<$Res> {
           _$_Chapter value, $Res Function(_$_Chapter) then) =
       __$$_ChapterCopyWithImpl<$Res>;
   @override
-  $Res call({int volume, String chapterTitle, bool isRead});
+  $Res call(
+      {int volume, String chapterTitle, ChapterReadState chapterReadState});
 }
 
 /// @nodoc
@@ -89,7 +91,7 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
   $Res call({
     Object? volume = freezed,
     Object? chapterTitle = freezed,
-    Object? isRead = freezed,
+    Object? chapterReadState = freezed,
   }) {
     return _then(_$_Chapter(
       volume: volume == freezed
@@ -100,10 +102,10 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
           ? _value.chapterTitle
           : chapterTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      isRead: isRead == freezed
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
+      chapterReadState: chapterReadState == freezed
+          ? _value.chapterReadState
+          : chapterReadState // ignore: cast_nullable_to_non_nullable
+              as ChapterReadState,
     ));
   }
 }
@@ -112,7 +114,9 @@ class __$$_ChapterCopyWithImpl<$Res> extends _$ChapterCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Chapter implements _Chapter {
   _$_Chapter(
-      {required this.volume, required this.chapterTitle, required this.isRead});
+      {required this.volume,
+      required this.chapterTitle,
+      required this.chapterReadState});
 
   factory _$_Chapter.fromJson(Map<String, dynamic> json) =>
       _$$_ChapterFromJson(json);
@@ -122,11 +126,11 @@ class _$_Chapter implements _Chapter {
   @override
   final String chapterTitle;
   @override
-  final bool isRead;
+  final ChapterReadState chapterReadState;
 
   @override
   String toString() {
-    return 'Chapter(volume: $volume, chapterTitle: $chapterTitle, isRead: $isRead)';
+    return 'Chapter(volume: $volume, chapterTitle: $chapterTitle, chapterReadState: $chapterReadState)';
   }
 
   @override
@@ -137,7 +141,8 @@ class _$_Chapter implements _Chapter {
             const DeepCollectionEquality().equals(other.volume, volume) &&
             const DeepCollectionEquality()
                 .equals(other.chapterTitle, chapterTitle) &&
-            const DeepCollectionEquality().equals(other.isRead, isRead));
+            const DeepCollectionEquality()
+                .equals(other.chapterReadState, chapterReadState));
   }
 
   @JsonKey(ignore: true)
@@ -146,7 +151,7 @@ class _$_Chapter implements _Chapter {
       runtimeType,
       const DeepCollectionEquality().hash(volume),
       const DeepCollectionEquality().hash(chapterTitle),
-      const DeepCollectionEquality().hash(isRead));
+      const DeepCollectionEquality().hash(chapterReadState));
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +170,7 @@ abstract class _Chapter implements Chapter {
   factory _Chapter(
       {required final int volume,
       required final String chapterTitle,
-      required final bool isRead}) = _$_Chapter;
+      required final ChapterReadState chapterReadState}) = _$_Chapter;
 
   factory _Chapter.fromJson(Map<String, dynamic> json) = _$_Chapter.fromJson;
 
@@ -174,7 +179,7 @@ abstract class _Chapter implements Chapter {
   @override
   String get chapterTitle;
   @override
-  bool get isRead;
+  ChapterReadState get chapterReadState;
   @override
   @JsonKey(ignore: true)
   _$$_ChapterCopyWith<_$_Chapter> get copyWith =>

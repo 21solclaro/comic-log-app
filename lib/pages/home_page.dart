@@ -1,20 +1,23 @@
 import 'package:comic_log_app/models/book.dart';
 import 'package:comic_log_app/models/chapter.dart';
 import 'package:comic_log_app/models/comic.dart';
-import 'package:comic_log_app/pages/comic_page.dart';
+import 'package:comic_log_app/widgets/cards/grid_card.dart';
+import 'package:comic_log_app/widgets/cards/list_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final isListViewProvider = StateProvider<bool>((ref) => true);
 
-class Home extends ConsumerWidget {
-  const Home({Key? key}) : super(key: key);
+class HomePage extends ConsumerWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isListView = ref.watch(isListViewProvider);
     return Scaffold(
         appBar: AppBar(
+          foregroundColor: Colors.grey,
+          backgroundColor: Colors.white,
           actions: [
             IconButton(
               icon: const Icon(Icons.list),
@@ -34,35 +37,7 @@ class Home extends ConsumerWidget {
             ? ListView.builder(
                 itemCount: comics.length,
                 itemBuilder: ((context, index) {
-                  return ListTile(
-                    title: Text(comics[index].title),
-                    subtitle: Row(
-                      children: [
-                        for (int i = 0;
-                            i < comics[index].author.length;
-                            i++) ...{
-                          if (i > 0) ...{
-                            Text('・${comics[index].author[i]}')
-                          } else
-                            Text('${comics[index].author[i]}')
-                        }
-                      ],
-                    ),
-                    leading: comics[index].imgUrl == ''
-                        ? Container(
-                            height: 60,
-                            width: 40,
-                            color: Colors.grey,
-                          )
-                        : Image(image: NetworkImage(comics[index].imgUrl)),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) {
-                          return ComicPage(comic: comics[index]);
-                        }),
-                      );
-                    },
-                  );
+                  return ListCard(comic: comics[index]);
                 }))
             : GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -70,32 +45,7 @@ class Home extends ConsumerWidget {
                 ),
                 itemCount: comics.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) {
-                          return ComicPage(comic: comics[index]);
-                        }),
-                      );
-                    },
-                    child: SizedBox(
-                        height: 200,
-                        width: 100,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 90,
-                              width: 60,
-                              color: Colors.grey,
-                            ),
-                            Text(
-                              comics[index].title,
-                              style: const TextStyle(fontSize: 10),
-                              overflow: TextOverflow.ellipsis,
-                            )
-                          ],
-                        )),
-                  );
+                  return GridCard(comic: comics[index]);
                 }));
   }
 }

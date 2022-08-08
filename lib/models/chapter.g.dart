@@ -21,7 +21,6 @@ Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
     };
 
 const _$ChapterReadStateEnumMap = {
-  ChapterReadState.read: 'read',
   ChapterReadState.unread: 'unread',
   ChapterReadState.finished: 'finished',
 };

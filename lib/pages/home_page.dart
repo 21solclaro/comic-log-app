@@ -1,3 +1,4 @@
+import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/models/book.dart';
 import 'package:comic_log_app/models/chapter.dart';
 import 'package:comic_log_app/models/comic.dart';
@@ -16,17 +17,16 @@ class HomePage extends ConsumerWidget {
     final isListView = ref.watch(isListViewProvider);
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
           actions: [
             IconButton(
-              color: isListView ? Colors.blue : Colors.grey,
+              color: isListView ? lMainColor : iconGrey,
               icon: const Icon(Icons.list),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = true;
               },
             ),
             IconButton(
-              color: isListView ? Colors.grey : Colors.blue,
+              color: isListView ? iconGrey : lMainColor,
               icon: const Icon(Icons.grid_view),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = false;

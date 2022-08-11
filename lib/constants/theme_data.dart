@@ -1,3 +1,4 @@
+import 'package:comic_log_app/constants/color.dart';
 import 'package:flutter/material.dart';
 
 final ThemeData lightThemeData = ThemeData.light().copyWith(
@@ -23,12 +24,3 @@ final ThemeData darkThemeData = ThemeData.dark().copyWith(
       showUnselectedLabels: false,
     ),
     unselectedWidgetColor: iconGrey);
-
-Color lMainColor = Colors.deepPurple;
-Color lBackgroundColor = const Color(0xFFEFEFF4);
-
-Color dMainColor = Colors.deepOrange;
-Color dSubColor = const Color(0xCC171717);
-Color dBackgroundColor = const Color(0xFF171717);
-
-Color iconGrey = Colors.blueGrey;

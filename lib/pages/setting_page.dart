@@ -1,13 +1,17 @@
+import 'package:comic_log_app/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends ConsumerWidget {
   const SettingPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isDarkTheme = ref.watch(isDarkThemeProvider);
+
     return SettingsList(
-      contentPadding: const EdgeInsets.only(top: 50),
+      contentPadding: const EdgeInsets.only(top: 60),
       lightTheme: const SettingsThemeData(
         settingsListBackground: Color(0xFFEFEFF4),
       ),
@@ -56,18 +60,24 @@ class SettingPage extends StatelessWidget {
         ),
         SettingsSection(
           title: const Text('Application'),
-          tiles: <SettingsTile>[
+          tiles: [
             SettingsTile.navigation(
               leading: const Icon(Icons.language),
               title: const Text('Language'),
               value: const Text('English'),
             ),
             SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: false,
-              leading: const Icon(Icons.dark_mode),
+              initialValue: isDarkTheme,
+              onToggle: (value) {
+                if (value) {
+                  ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
+                } else {
+                  ref.read(themeModeProvider.notifier).state = ThemeMode.light;
+                }
+              },
               title: const Text('Dark Theme'),
-            ),
+              leading: const Icon(Icons.dark_mode),
+            )
           ],
         ),
         SettingsSection(

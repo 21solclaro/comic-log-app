@@ -1,3 +1,4 @@
+import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/models/comic.dart';
 import 'package:comic_log_app/pages/comic_page.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +18,19 @@ class GridCard extends StatelessWidget {
           }),
         );
       },
-      child: SizedBox(
-          height: 200,
-          width: 100,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(2, 8, 2, 2),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 90,
                 width: 60,
-                color: Colors.grey,
+                child: comic.imgUrl == ''
+                    ? Container(
+                        color: iconGrey,
+                      )
+                    : Image(image: NetworkImage(comic.imgUrl)),
               ),
               Text(
                 comic.title,
@@ -33,7 +38,9 @@ class GridCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

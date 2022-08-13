@@ -14,12 +14,12 @@ class ComicTabBar extends StatelessWidget {
         labelColor: Colors.blue,
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
-        unselectedLabelColor: Colors.grey,
-        tabs: [
+        unselectedLabelColor: Colors.blueGrey,
+        tabs: <Tab>[
           Tab(text: 'About'),
           Tab(text: 'Book'),
           Tab(text: 'Chapter'),
-          Tab(text: 'Relation')
+          Tab(text: 'Related')
         ],
       ),
     );

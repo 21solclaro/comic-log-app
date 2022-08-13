@@ -1,3 +1,4 @@
+import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/models/comic.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class ComicHeader extends StatelessWidget {
                     ? Container(
                         width: 140,
                         height: 210,
-                        color: Colors.grey,
+                        color: iconGrey,
                       )
                     : Image(image: NetworkImage(comic.imgUrl)),
               ),

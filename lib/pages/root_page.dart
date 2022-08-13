@@ -26,9 +26,6 @@ class RootPage extends ConsumerWidget {
       child: Scaffold(
         body: pages[pageType.index],
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: false,
           currentIndex: pageType.index,
           type: BottomNavigationBarType.fixed,
           onTap: (int selectIndex) {
@@ -41,7 +38,7 @@ class RootPage extends ConsumerWidget {
             BottomNavigationBarItem(
                 icon: Icon(Icons.search_outlined), label: 'search'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline), label: 'profile'),
+                icon: Icon(Icons.account_circle_outlined), label: 'profile'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings_outlined), label: 'settings'),
           ],

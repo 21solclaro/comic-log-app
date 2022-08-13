@@ -1,6 +1,7 @@
 import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/models/comic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ComicHeader extends StatelessWidget {
   const ComicHeader({Key? key, required this.comic}) : super(key: key);
@@ -56,16 +57,17 @@ class ComicHeader extends StatelessWidget {
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    Row(
-                      children: [
-                        for (int i = 0; i < comic.author.length; i++) ...{
-                          if (i > 0) ...{Text('・${comic.author[i]}')} else
-                            Text('${comic.author[i]}')
-                        }
-                      ],
-                    ),
-                    Text('${comic.publisher}・${comic.startYear}'),
-                    comic.serializeState.stateTag
+                    comic.serializeState.stateTag,
+                    RatingBar.builder(
+                      initialRating: comic.rating.toDouble(),
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      itemCount: 5,
+                      itemSize: 20,
+                      itemBuilder: (context, _) =>
+                          const Icon(Icons.star, color: Colors.yellowAccent),
+                      onRatingUpdate: (rate) {},
+                    )
                   ],
                 ),
               ),

@@ -27,6 +27,7 @@ mixin _$Comic {
   String get magazine => throw _privateConstructorUsedError;
   int get startYear => throw _privateConstructorUsedError;
   int get endYear => throw _privateConstructorUsedError;
+  int get rating => throw _privateConstructorUsedError;
   List<Book> get books => throw _privateConstructorUsedError;
   List<Chapter> get chapters => throw _privateConstructorUsedError;
   SerializeState get serializeState => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $ComicCopyWith<$Res> {
       String magazine,
       int startYear,
       int endYear,
+      int rating,
       List<Book> books,
       List<Chapter> chapters,
       SerializeState serializeState});
@@ -70,6 +72,7 @@ class _$ComicCopyWithImpl<$Res> implements $ComicCopyWith<$Res> {
     Object? magazine = freezed,
     Object? startYear = freezed,
     Object? endYear = freezed,
+    Object? rating = freezed,
     Object? books = freezed,
     Object? chapters = freezed,
     Object? serializeState = freezed,
@@ -103,6 +106,10 @@ class _$ComicCopyWithImpl<$Res> implements $ComicCopyWith<$Res> {
           ? _value.endYear
           : endYear // ignore: cast_nullable_to_non_nullable
               as int,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int,
       books: books == freezed
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
@@ -132,6 +139,7 @@ abstract class _$$_ComicCopyWith<$Res> implements $ComicCopyWith<$Res> {
       String magazine,
       int startYear,
       int endYear,
+      int rating,
       List<Book> books,
       List<Chapter> chapters,
       SerializeState serializeState});
@@ -155,6 +163,7 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res>
     Object? magazine = freezed,
     Object? startYear = freezed,
     Object? endYear = freezed,
+    Object? rating = freezed,
     Object? books = freezed,
     Object? chapters = freezed,
     Object? serializeState = freezed,
@@ -188,6 +197,10 @@ class __$$_ComicCopyWithImpl<$Res> extends _$ComicCopyWithImpl<$Res>
           ? _value.endYear
           : endYear // ignore: cast_nullable_to_non_nullable
               as int,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int,
       books: books == freezed
           ? _value._books
           : books // ignore: cast_nullable_to_non_nullable
@@ -215,6 +228,7 @@ class _$_Comic implements _Comic {
       required this.magazine,
       required this.startYear,
       required this.endYear,
+      required this.rating,
       required final List<Book> books,
       required final List<Chapter> chapters,
       required this.serializeState})
@@ -244,6 +258,8 @@ class _$_Comic implements _Comic {
   final int startYear;
   @override
   final int endYear;
+  @override
+  final int rating;
   final List<Book> _books;
   @override
   List<Book> get books {
@@ -263,7 +279,7 @@ class _$_Comic implements _Comic {
 
   @override
   String toString() {
-    return 'Comic(title: $title, author: $author, imgUrl: $imgUrl, publisher: $publisher, magazine: $magazine, startYear: $startYear, endYear: $endYear, books: $books, chapters: $chapters, serializeState: $serializeState)';
+    return 'Comic(title: $title, author: $author, imgUrl: $imgUrl, publisher: $publisher, magazine: $magazine, startYear: $startYear, endYear: $endYear, rating: $rating, books: $books, chapters: $chapters, serializeState: $serializeState)';
   }
 
   @override
@@ -278,6 +294,7 @@ class _$_Comic implements _Comic {
             const DeepCollectionEquality().equals(other.magazine, magazine) &&
             const DeepCollectionEquality().equals(other.startYear, startYear) &&
             const DeepCollectionEquality().equals(other.endYear, endYear) &&
+            const DeepCollectionEquality().equals(other.rating, rating) &&
             const DeepCollectionEquality().equals(other._books, _books) &&
             const DeepCollectionEquality().equals(other._chapters, _chapters) &&
             const DeepCollectionEquality()
@@ -295,6 +312,7 @@ class _$_Comic implements _Comic {
       const DeepCollectionEquality().hash(magazine),
       const DeepCollectionEquality().hash(startYear),
       const DeepCollectionEquality().hash(endYear),
+      const DeepCollectionEquality().hash(rating),
       const DeepCollectionEquality().hash(_books),
       const DeepCollectionEquality().hash(_chapters),
       const DeepCollectionEquality().hash(serializeState));
@@ -321,6 +339,7 @@ abstract class _Comic implements Comic {
       required final String magazine,
       required final int startYear,
       required final int endYear,
+      required final int rating,
       required final List<Book> books,
       required final List<Chapter> chapters,
       required final SerializeState serializeState}) = _$_Comic;
@@ -341,6 +360,8 @@ abstract class _Comic implements Comic {
   int get startYear;
   @override
   int get endYear;
+  @override
+  int get rating;
   @override
   List<Book> get books;
   @override

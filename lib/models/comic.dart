@@ -16,6 +16,7 @@ class Comic with _$Comic {
       required String magazine,
       required int startYear,
       required int endYear,
+      required int rating,
       required List<Book> books,
       required List<Chapter> chapters,
       required SerializeState serializeState}) = _Comic;

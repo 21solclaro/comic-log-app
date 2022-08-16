@@ -19,26 +19,26 @@ class GridCard extends StatelessWidget {
         );
       },
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(2, 8, 2, 2),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 90,
-                width: 60,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 2),
+              child: SizedBox(
+                height: 105,
+                width: 70,
                 child: comic.imgUrl == ''
                     ? Container(
                         color: iconGrey,
                       )
                     : Image(image: NetworkImage(comic.imgUrl)),
               ),
-              Text(
-                comic.title,
-                style: const TextStyle(fontSize: 10),
-                overflow: TextOverflow.ellipsis,
-              )
-            ],
-          ),
+            ),
+            Text(
+              comic.title,
+              style: const TextStyle(fontSize: 10),
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
         ),
       ),
     );

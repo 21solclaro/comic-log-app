@@ -42,8 +42,7 @@ class HomePage extends ConsumerWidget {
                 }))
             : GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                ),
+                    crossAxisCount: 4, childAspectRatio: 2 / 3),
                 itemCount: comics.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GridCard(comic: comics[index]);
@@ -97,7 +96,8 @@ final comics = [
             chapterTitle: '〝海賊狩りのゾロ〟登場',
             chapterReadState: ChapterReadState.finished),
       ],
-      serializeState: SerializeState.serialize),
+      serializeState: SerializeState.serialize,
+      rating: 5),
   Comic(
       title: 'ジョジョの奇妙な冒険 PART7 スティール・ボール・ラン',
       author: ['荒木飛呂彦'],
@@ -109,7 +109,8 @@ final comics = [
       endYear: 2011,
       books: [],
       chapters: [],
-      serializeState: SerializeState.finished),
+      serializeState: SerializeState.finished,
+      rating: 5),
   Comic(
       title: 'DEATH NOTE',
       author: ['大場つぐみ', '小畑健'],
@@ -122,5 +123,6 @@ final comics = [
       endYear: 2006,
       books: [],
       chapters: [],
-      serializeState: SerializeState.finished),
+      serializeState: SerializeState.finished,
+      rating: 4),
 ];

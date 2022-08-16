@@ -1,3 +1,4 @@
+import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,16 +13,13 @@ class SettingPage extends ConsumerWidget {
 
     return SettingsList(
       contentPadding: const EdgeInsets.only(top: 60),
-      lightTheme: const SettingsThemeData(
-        settingsListBackground: Color(0xFFEFEFF4),
-      ),
       sections: [
         CustomSettingsSection(
           child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDarkTheme ? dForegroundColor : lForegroundColor,
                     borderRadius: BorderRadius.circular(14)),
                 height: 100,
                 child: Row(
@@ -29,6 +27,7 @@ class SettingPage extends ConsumerWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 16, right: 20),
                       child: CircleAvatar(
+                        backgroundColor: Colors.blueGrey,
                         maxRadius: 36,
                       ),
                     ),

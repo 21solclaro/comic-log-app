@@ -27,7 +27,6 @@ class ComicPage extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 pinned: true,
                 expandedHeight: 300,
-                backgroundColor: Colors.white,
                 flexibleSpace: ComicHeader(comic: comic),
                 bottom: const PreferredSize(
                     preferredSize: Size.fromHeight(0), child: ComicTabBar()),

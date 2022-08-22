@@ -5,7 +5,7 @@ class RelatedWorksTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('関連作品'),
     );
   }

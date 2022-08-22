@@ -54,7 +54,7 @@ class ListCard extends StatelessWidget {
                           )
                         } else
                           Text(
-                            '${comic.author[i]}',
+                            comic.author[i],
                             style: TextStyle(color: iconGrey),
                           )
                       }

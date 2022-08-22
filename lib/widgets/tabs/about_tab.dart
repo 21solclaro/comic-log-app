@@ -15,15 +15,10 @@ class AboutTab extends StatelessWidget {
             children: [
               for (int i = 0; i < comic.author.length; i++) ...{
                 if (i > 0) ...{
-                  Text(
-                    '・${comic.author[i]}',
-                    style: const TextStyle(fontSize: 14),
-                  )
+                  Text('・${comic.author[i]}',
+                      style: const TextStyle(fontSize: 14))
                 } else
-                  Text(
-                    '${comic.author[i]}',
-                    style: const TextStyle(fontSize: 14),
-                  )
+                  Text(comic.author[i], style: const TextStyle(fontSize: 14))
               }
             ],
           ),
@@ -43,20 +38,20 @@ class AboutTab extends StatelessWidget {
           ),
           leading: const Icon(Icons.newspaper),
         ),
-        ListTile(
-          title: Text(
-            '${comic.startYear}年〜${comic.serializeState == SerializeState.finished ? comic.endYear : DateTime.now().year}年',
-            style: const TextStyle(fontSize: 14),
-          ),
-          leading: const Icon(Icons.timeline),
-        ),
-        ListTile(
-          title: Text(
-            '${comic.books.length}巻・${comic.chapters.length}話',
-            style: const TextStyle(fontSize: 14),
-          ),
-          leading: const Icon(Icons.menu_book),
-        ),
+        // ListTile(
+        //   title: Text(
+        //     '${comic.startYear}年〜${comic.serializeState == SerializeState.finished ? comic.endYear : DateTime.now().year}年',
+        //     style: const TextStyle(fontSize: 14),
+        //   ),
+        //   leading: const Icon(Icons.timeline),
+        // ),
+        // ListTile(
+        //   title: Text(
+        //     '${comic.books!.length}巻・${comic.chapters!.length}話',
+        //     style: const TextStyle(fontSize: 14),
+        //   ),
+        //   leading: const Icon(Icons.menu_book),
+        // ),
         const Divider(
           indent: 16,
           endIndent: 16,

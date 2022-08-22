@@ -1,3 +1,4 @@
+import 'package:comic_log_app/models/date_time_converter.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -9,7 +10,7 @@ class Book with _$Book {
   factory Book({
     required int volume,
     required String imgUrl,
-    required DateTime publishedAt,
+    @DateTimeTimestampConverter() required DateTime publishedAt,
     required BookReadState bookReadState,
   }) = _Book;
 

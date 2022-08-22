@@ -22,6 +22,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 mixin _$Book {
   int get volume => throw _privateConstructorUsedError;
   String get imgUrl => throw _privateConstructorUsedError;
+  @DateTimeTimestampConverter()
   DateTime get publishedAt => throw _privateConstructorUsedError;
   BookReadState get bookReadState => throw _privateConstructorUsedError;
 
@@ -37,7 +38,7 @@ abstract class $BookCopyWith<$Res> {
   $Res call(
       {int volume,
       String imgUrl,
-      DateTime publishedAt,
+      @DateTimeTimestampConverter() DateTime publishedAt,
       BookReadState bookReadState});
 }
 
@@ -85,7 +86,7 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
   $Res call(
       {int volume,
       String imgUrl,
-      DateTime publishedAt,
+      @DateTimeTimestampConverter() DateTime publishedAt,
       BookReadState bookReadState});
 }
 
@@ -132,7 +133,7 @@ class _$_Book implements _Book {
   _$_Book(
       {required this.volume,
       required this.imgUrl,
-      required this.publishedAt,
+      @DateTimeTimestampConverter() required this.publishedAt,
       required this.bookReadState});
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
@@ -142,6 +143,7 @@ class _$_Book implements _Book {
   @override
   final String imgUrl;
   @override
+  @DateTimeTimestampConverter()
   final DateTime publishedAt;
   @override
   final BookReadState bookReadState;
@@ -190,7 +192,7 @@ abstract class _Book implements Book {
   factory _Book(
       {required final int volume,
       required final String imgUrl,
-      required final DateTime publishedAt,
+      @DateTimeTimestampConverter() required final DateTime publishedAt,
       required final BookReadState bookReadState}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
@@ -200,6 +202,7 @@ abstract class _Book implements Book {
   @override
   String get imgUrl;
   @override
+  @DateTimeTimestampConverter()
   DateTime get publishedAt;
   @override
   BookReadState get bookReadState;

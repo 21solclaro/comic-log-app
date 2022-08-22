@@ -1,5 +1,3 @@
-import 'package:comic_log_app/models/book.dart';
-import 'package:comic_log_app/models/chapter.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,18 +6,18 @@ part 'comic.g.dart';
 
 @freezed
 class Comic with _$Comic {
-  factory Comic(
-      {required String title,
-      required List author,
-      required String imgUrl,
-      required String publisher,
-      required String magazine,
-      required int startYear,
-      required int endYear,
-      required int rating,
-      required List<Book> books,
-      required List<Chapter> chapters,
-      required SerializeState serializeState}) = _Comic;
+  factory Comic({
+    required String cid,
+    required String title,
+    required List<String> author,
+    required String imgUrl,
+    required String publisher,
+    required String magazine,
+    required int startYear,
+    required int endYear,
+    required int rating,
+    required SerializeState serializeState,
+  }) = _Comic;
 
   factory Comic.fromJson(Map<String, dynamic> json) => _$ComicFromJson(json);
 }

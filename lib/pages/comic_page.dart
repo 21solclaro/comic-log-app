@@ -6,14 +6,15 @@ import 'package:comic_log_app/widgets/tabs/books_tab.dart';
 import 'package:comic_log_app/widgets/tabs/chapters_tab.dart';
 import 'package:comic_log_app/widgets/tabs/related_works_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ComicPage extends StatelessWidget {
+class ComicPage extends ConsumerWidget {
   const ComicPage({Key? key, required this.comic}) : super(key: key);
 
   final Comic comic;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return DefaultTabController(
       initialIndex: 0,
       length: 4,
@@ -35,8 +36,8 @@ class ComicPage extends StatelessWidget {
           },
           body: TabBarView(children: [
             AboutTab(comic: comic),
-            BooksTab(books: comic.books),
-            ChaptersTab(chapters: comic.chapters),
+            const BooksTab(),
+            const ChaptersTab(),
             const RelatedWorksTab()
           ]),
         ),

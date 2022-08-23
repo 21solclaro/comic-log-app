@@ -14,14 +14,27 @@ class ChaptersTab extends ConsumerWidget {
         error: (error, stack) => Text('Error: $error'),
         data: (chapters) {
           return ListView.builder(
+              padding: const EdgeInsets.fromLTRB(4, 20, 4, 10),
               itemCount: chapters.length,
               itemBuilder: ((context, index) {
-                return ListTile(
-                  leading: Text('${chapters[index].volume}話'),
-                  title: Text(chapters[index].chapterTitle),
-                  trailing: chapters[index].chapterReadState.stateTag,
-                );
+                return ChapterCard(chapter: chapters[index]);
               }));
         });
+  }
+}
+
+class ChapterCard extends ConsumerWidget {
+  const ChapterCard({Key? key, required this.chapter}) : super(key: key);
+
+  final Chapter chapter;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ListTile(
+      tileColor: Colors.white,
+      leading: Text('${chapter.volume}話'),
+      title: Text(chapter.chapterTitle),
+      trailing: chapter.chapterReadState.stateTag,
+    );
   }
 }

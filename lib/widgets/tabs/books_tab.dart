@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:comic_log_app/models/book.dart';
 import 'package:comic_log_app/providers/book_provider.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +15,27 @@ class BooksTab extends ConsumerWidget {
         error: (error, stack) => Text('Error: $error'),
         data: (books) {
           return ListView.builder(
+              padding: const EdgeInsets.fromLTRB(4, 20, 4, 10),
               itemCount: books.length,
               itemBuilder: ((context, index) {
-                return ListTile(
-                  leading: Image(image: NetworkImage(books[index].imgUrl)),
-                  title: Text('${books[index].volume}巻'),
-                  trailing: books[index].bookReadState.stateTag,
-                );
+                return BookCard(book: books[index]);
               }));
         });
+  }
+}
+
+class BookCard extends ConsumerWidget {
+  const BookCard({Key? key, required this.book}) : super(key: key);
+
+  final Book book;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ListTile(
+      leading: Image(image: NetworkImage(book.imgUrl)),
+      title: Text('${book.volume}巻'),
+      subtitle: Text(DateFormat('yyyy/MM/dd').format(book.publishedAt)),
+      trailing: book.bookReadState.stateTag,
+    );
   }
 }

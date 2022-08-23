@@ -9,7 +9,7 @@ final bookStreamProvider = StreamProvider.autoDispose((ref) {
       .collection('comics')
       .doc(cid)
       .collection('books')
-      .orderBy('publishedAt', descending: false)
+      .orderBy('volume')
       .snapshots();
 
   return snapshots.map((snapshot) =>

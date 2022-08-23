@@ -1,7 +1,7 @@
 import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class SettingPage extends ConsumerWidget {

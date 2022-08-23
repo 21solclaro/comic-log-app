@@ -3,7 +3,7 @@ import 'package:comic_log_app/models/comic.dart';
 import 'package:comic_log_app/pages/comic_page.dart';
 import 'package:comic_log_app/providers/comic_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class GridCard extends ConsumerWidget {
   const GridCard({Key? key, required this.comic}) : super(key: key);

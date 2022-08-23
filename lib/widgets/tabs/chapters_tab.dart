@@ -1,7 +1,7 @@
 import 'package:comic_log_app/models/chapter.dart';
 import 'package:comic_log_app/providers/chapter_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChaptersTab extends ConsumerWidget {
   const ChaptersTab({Key? key}) : super(key: key);

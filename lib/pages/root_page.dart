@@ -3,7 +3,7 @@ import 'package:comic_log_app/pages/profile_page.dart';
 import 'package:comic_log_app/pages/search_page.dart';
 import 'package:comic_log_app/pages/setting_page.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum PageType { home, search, profile, setting }
 

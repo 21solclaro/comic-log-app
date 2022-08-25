@@ -1,6 +1,5 @@
 import 'package:comic_log_app/models/comic.dart';
 import 'package:comic_log_app/widgets/comic_header.dart';
-import 'package:comic_log_app/widgets/comic_tab_bar.dart';
 import 'package:comic_log_app/widgets/tabs/about_tab.dart';
 import 'package:comic_log_app/widgets/tabs/books_tab.dart';
 import 'package:comic_log_app/widgets/tabs/chapters_tab.dart';
@@ -30,7 +29,18 @@ class ComicPage extends ConsumerWidget {
                 expandedHeight: 300,
                 flexibleSpace: ComicHeader(comic: comic),
                 bottom: const PreferredSize(
-                    preferredSize: Size.fromHeight(0), child: ComicTabBar()),
+                    preferredSize: Size.fromHeight(0),
+                    child: SizedBox(
+                      height: 40,
+                      child: TabBar(
+                        tabs: <Tab>[
+                          Tab(text: 'About'),
+                          Tab(text: 'Book'),
+                          Tab(text: 'Chapter'),
+                          Tab(text: 'Related')
+                        ],
+                      ),
+                    )),
               ),
             ];
           },

@@ -1,3 +1,4 @@
+import 'package:comic_log_app/widgets/state_tag.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -28,59 +29,11 @@ extension SerializeStateEx on SerializeState {
   Widget get stateTag {
     switch (this) {
       case SerializeState.serialize:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.purple,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '連載中',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
+        return const StateTag(stateText: '連載中', color: Colors.deepPurple);
       case SerializeState.hiatus:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.deepOrangeAccent,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '休載中',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
+        return const StateTag(stateText: '休載中', color: Colors.green);
       case SerializeState.finished:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.deepOrangeAccent,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '連載終了',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
+        return const StateTag(stateText: '連載終了', color: Colors.deepOrange);
     }
   }
 }

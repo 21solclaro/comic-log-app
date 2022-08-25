@@ -1,4 +1,5 @@
 import 'package:comic_log_app/models/date_time_converter.dart';
+import 'package:comic_log_app/widgets/state_tag.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -22,60 +23,12 @@ enum BookReadState { read, unread, finished }
 extension BookReadStateEx on BookReadState {
   Widget get stateTag {
     switch (this) {
-      case BookReadState.read:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '読書中',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
       case BookReadState.unread:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.purple,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '未読',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
+        return const StateTag(stateText: '未読', color: Colors.deepPurple);
+      case BookReadState.read:
+        return const StateTag(stateText: '読書中', color: Colors.green);
       case BookReadState.finished:
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.deepOrangeAccent,
-            borderRadius: BorderRadius.circular(100.0),
-          ),
-          child: const Text(
-            '読了',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12.0,
-            ),
-          ),
-        );
+        return const StateTag(stateText: '読了', color: Colors.deepOrange);
     }
   }
 }

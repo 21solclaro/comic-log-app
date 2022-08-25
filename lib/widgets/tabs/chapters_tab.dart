@@ -31,7 +31,6 @@ class ChapterCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
-      tileColor: Colors.white,
       leading: Text('${chapter.volume}話'),
       title: Text(chapter.chapterTitle),
       trailing: chapter.chapterReadState.stateTag,

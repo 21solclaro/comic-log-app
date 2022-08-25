@@ -12,6 +12,14 @@ class SettingPage extends ConsumerWidget {
     final isDarkTheme = ref.watch(isDarkThemeProvider);
 
     return SettingsList(
+      lightTheme: SettingsThemeData(
+        leadingIconsColor: iconGrey,
+        trailingTextColor: iconGrey,
+      ),
+      darkTheme: SettingsThemeData(
+        leadingIconsColor: iconGrey,
+        trailingTextColor: iconGrey,
+      ),
       contentPadding: const EdgeInsets.only(top: 60),
       sections: [
         CustomSettingsSection(
@@ -67,6 +75,7 @@ class SettingPage extends ConsumerWidget {
             ),
             SettingsTile.switchTile(
               initialValue: isDarkTheme,
+              activeSwitchColor: dMainColor,
               onToggle: (value) {
                 if (value) {
                   ref.read(themeModeProvider.notifier).state = ThemeMode.dark;

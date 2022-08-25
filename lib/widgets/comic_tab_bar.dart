@@ -8,13 +8,6 @@ class ComicTabBar extends StatelessWidget {
     return const SizedBox(
       height: 40,
       child: TabBar(
-        indicator: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.blue, width: 3)),
-        ),
-        labelColor: Colors.blue,
-        labelStyle: TextStyle(fontWeight: FontWeight.bold),
-        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
-        unselectedLabelColor: Colors.blueGrey,
         tabs: <Tab>[
           Tab(text: 'About'),
           Tab(text: 'Book'),

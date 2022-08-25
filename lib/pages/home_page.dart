@@ -19,14 +19,18 @@ class HomePage extends ConsumerWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              color: isListView ? lMainColor : iconGrey,
+              color: isListView
+                  ? ThemeData().appBarTheme.actionsIconTheme?.color
+                  : iconGrey,
               icon: const Icon(Icons.list),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = true;
               },
             ),
             IconButton(
-              color: isListView ? iconGrey : lMainColor,
+              color: isListView
+                  ? iconGrey
+                  : ThemeData().appBarTheme.actionsIconTheme?.color,
               icon: const Icon(Icons.grid_view),
               onPressed: () {
                 ref.read(isListViewProvider.notifier).state = false;

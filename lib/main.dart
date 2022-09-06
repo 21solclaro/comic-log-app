@@ -1,4 +1,4 @@
-import 'package:comic_log_app/pages/root_page.dart';
+import 'package:comic_log_app/pages/start_page.dart';
 import 'package:comic_log_app/providers/theme_provider.dart';
 import 'package:comic_log_app/constants/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +23,7 @@ class MyApp extends ConsumerWidget {
       theme: lightThemeData,
       darkTheme: darkThemeData,
       themeMode: ref.watch(themeModeProvider),
-      home: const RootPage(),
+      home: const StartPage(),
     );
   }
 }

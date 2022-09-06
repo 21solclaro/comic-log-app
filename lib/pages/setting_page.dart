@@ -1,8 +1,11 @@
 import 'package:comic_log_app/constants/color.dart';
 import 'package:comic_log_app/providers/theme_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
+
+import 'package:comic_log_app/pages/start_page.dart';
 
 class SettingPage extends ConsumerWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -91,6 +94,32 @@ class SettingPage extends ConsumerWidget {
         SettingsSection(
           tiles: <SettingsTile>[
             SettingsTile.navigation(
+              onPressed: (context) {
+                showCupertinoDialog(
+                  context: context,
+                  builder: (context) {
+                    return CupertinoAlertDialog(
+                      title: const Text('Sign out?'),
+                      actions: [
+                        CupertinoDialogAction(
+                          child: const Text("Cancel"),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                        CupertinoDialogAction(
+                            child: const Text("OK"),
+                            onPressed: () {
+                              // auth.signOut();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) {
+                                  return const StartPage();
+                                },
+                              ));
+                            })
+                      ],
+                    );
+                  },
+                );
+              },
               leading: const Icon(Icons.logout),
               title: const Text('Sign Out'),
             ),

@@ -1,9 +1,9 @@
-import 'package:comic_log_app/models/comic.dart';
-import 'package:comic_log_app/widgets/comic_header.dart';
-import 'package:comic_log_app/widgets/tabs/about_tab.dart';
-import 'package:comic_log_app/widgets/tabs/books_tab.dart';
-import 'package:comic_log_app/widgets/tabs/chapters_tab.dart';
-import 'package:comic_log_app/widgets/tabs/related_works_tab.dart';
+import '../models/comic.dart';
+import '../widgets/comic_header.dart';
+import '../widgets/tabs/about_tab.dart';
+import '../widgets/tabs/books_tab.dart';
+import '../widgets/tabs/chapters_tab.dart';
+import '../widgets/tabs/related_works_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

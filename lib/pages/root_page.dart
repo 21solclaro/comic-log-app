@@ -1,7 +1,7 @@
 import 'package:comic_log_app/pages/collection_page.dart';
-import 'package:comic_log_app/pages/profile_page.dart';
-import 'package:comic_log_app/pages/search_page.dart';
-import 'package:comic_log_app/pages/setting_page.dart';
+import 'profile_page.dart';
+import 'search_page.dart';
+import 'setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

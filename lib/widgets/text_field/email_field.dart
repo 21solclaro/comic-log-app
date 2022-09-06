@@ -1,4 +1,4 @@
-import 'package:comic_log_app/providers/sign_provider.dart';
+import '../../providers/sign_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

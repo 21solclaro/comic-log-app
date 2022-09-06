@@ -1,7 +1,7 @@
-import 'package:comic_log_app/constants/color.dart';
-import 'package:comic_log_app/models/comic.dart';
-import 'package:comic_log_app/pages/comic_page.dart';
-import 'package:comic_log_app/providers/comic_provider.dart';
+import '../../constants/color.dart';
+import '../../models/comic.dart';
+import '../../pages/comic_page.dart';
+import '../../providers/comic_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

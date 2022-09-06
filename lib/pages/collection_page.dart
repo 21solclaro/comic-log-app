@@ -1,7 +1,7 @@
-import 'package:comic_log_app/constants/color.dart';
-import 'package:comic_log_app/providers/comic_provider.dart';
-import 'package:comic_log_app/widgets/cards/grid_card.dart';
-import 'package:comic_log_app/widgets/cards/list_card.dart';
+import '../constants/color.dart';
+import '../providers/comic_provider.dart';
+import '../widgets/cards/grid_card.dart';
+import '../widgets/cards/list_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

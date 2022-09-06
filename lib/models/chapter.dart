@@ -1,4 +1,4 @@
-import 'package:comic_log_app/widgets/state_tag.dart';
+import '../widgets/state_tag.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:comic_log_app/models/comic.dart';
+import '../models/comic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final comicStreamProvider = StreamProvider.autoDispose((_) {

@@ -1,5 +1,5 @@
-import 'package:comic_log_app/models/date_time_converter.dart';
-import 'package:comic_log_app/widgets/state_tag.dart';
+import 'date_time_converter.dart';
+import '../widgets/state_tag.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

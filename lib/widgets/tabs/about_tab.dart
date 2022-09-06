@@ -1,4 +1,4 @@
-import 'package:comic_log_app/models/comic.dart';
+import '../../models/comic.dart';
 import 'package:flutter/material.dart';
 
 class AboutTab extends StatelessWidget {

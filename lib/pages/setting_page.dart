@@ -1,3 +1,5 @@
+import 'package:comic_log_app/pages/root_page.dart';
+
 import '../constants/color.dart';
 import '../providers/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+import '../providers/user_provider.dart';
 import 'start_page.dart';
 
 class SettingPage extends ConsumerWidget {
@@ -13,6 +16,7 @@ class SettingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDarkTheme = ref.watch(isDarkThemeProvider);
+    final sign = ref.watch(userStateNotifierProvider.notifier);
 
     return SettingsList(
       lightTheme: SettingsThemeData(
@@ -108,12 +112,14 @@ class SettingPage extends ConsumerWidget {
                         CupertinoDialogAction(
                             child: const Text("OK"),
                             onPressed: () {
-                              // auth.signOut();
+                              sign.signOut();
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) {
                                   return const StartPage();
                                 },
                               ));
+                              ref.read(pageTypeProvider.notifier).state =
+                                  PageType.home;
                             })
                       ],
                     );

@@ -1,3 +1,5 @@
+import 'package:comic_log_app/providers/user_provider.dart';
+import '../providers/sign_provider.dart';
 import '../widgets/buttons/custom_outlined_button.dart';
 import '../widgets/buttons/sign_button.dart';
 import '../widgets/text_field/email_field.dart';
@@ -10,6 +12,9 @@ class SignInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final sign = ref.watch(userStateNotifierProvider.notifier);
+    final email = ref.watch(emailProvider);
+    final password = ref.watch(passwordProvider);
     final signInFormKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -39,6 +44,7 @@ class SignInPage extends ConsumerWidget {
               formKey: signInFormKey,
               text: 'Sign In',
               errorMessage: 'ログインに失敗しました。',
+              function: () => sign.signIn(email.text, password.text),
             ),
             const SizedBox(height: 10),
             CustomOutlinedButton(

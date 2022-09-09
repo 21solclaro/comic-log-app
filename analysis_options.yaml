@@ -36,5 +36,7 @@ analyzer:
     - "lib/models/book.freezed.dart"
     - "lib/models/chapter.g.dart"
     - "lib/models/chapter.freezed.dart"
+    - "lib/models/user.g.dart"
+    - "lib/models/user.freezed.dart"
   errors:
     invalid_annotation_target: ignore

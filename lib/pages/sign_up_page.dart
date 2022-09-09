@@ -1,3 +1,5 @@
+import '../providers/sign_provider.dart';
+import '../providers/user_provider.dart';
 import '../widgets/buttons/custom_outlined_button.dart';
 import '../widgets/buttons/sign_button.dart';
 import '../widgets/text_field/email_field.dart';
@@ -11,6 +13,10 @@ class SignUpPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final sign = ref.watch(userStateNotifierProvider.notifier);
+    final username = ref.watch(usernameProvider);
+    final email = ref.watch(emailProvider);
+    final password = ref.watch(passwordProvider);
     final signUpFormKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -42,6 +48,8 @@ class SignUpPage extends ConsumerWidget {
               formKey: signUpFormKey,
               text: 'Sign Up',
               errorMessage: '登録に失敗しました。',
+              function: () =>
+                  sign.signUp(username.text, email.text, password.text),
             ),
             const SizedBox(height: 10),
             CustomOutlinedButton(

@@ -18,7 +18,7 @@ class CustomOutlinedButton extends StatelessWidget {
           function();
         },
         style: OutlinedButton.styleFrom(
-          primary: Colors.black,
+          foregroundColor: Colors.black,
           shape: const StadiumBorder(),
           textStyle: const TextStyle(fontWeight: FontWeight.bold),
           side: const BorderSide(color: Colors.black, width: 1.0),

@@ -18,7 +18,7 @@ class CustomElevatedButton extends StatelessWidget {
           function();
         },
         style: ElevatedButton.styleFrom(
-          primary: Colors.black,
+          backgroundColor: Colors.black,
           shape: const StadiumBorder(),
           textStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),

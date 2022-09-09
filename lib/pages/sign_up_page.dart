@@ -2,9 +2,7 @@ import '../providers/sign_provider.dart';
 import '../providers/user_provider.dart';
 import '../widgets/buttons/custom_outlined_button.dart';
 import '../widgets/buttons/sign_button.dart';
-import '../widgets/text_field/email_field.dart';
-import '../widgets/text_field/password_field.dart';
-import '../widgets/text_field/username_field.dart';
+import '../widgets/sign_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,11 +33,11 @@ class SignUpPage extends ConsumerWidget {
               key: signUpFormKey,
               child: Column(
                 children: const <Widget>[
-                  UsernameField(),
+                  EmailForm(),
                   SizedBox(height: 8),
-                  EmailField(),
+                  PasswordForm(),
                   SizedBox(height: 8),
-                  PasswordField(),
+                  UsernameForm(),
                 ],
               ),
             ),

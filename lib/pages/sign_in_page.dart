@@ -2,8 +2,7 @@ import 'package:comic_log_app/providers/user_provider.dart';
 import '../providers/sign_provider.dart';
 import '../widgets/buttons/custom_outlined_button.dart';
 import '../widgets/buttons/sign_button.dart';
-import '../widgets/text_field/email_field.dart';
-import '../widgets/text_field/password_field.dart';
+import '../widgets/sign_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,13 +32,13 @@ class SignInPage extends ConsumerWidget {
               key: signInFormKey,
               child: Column(
                 children: const <Widget>[
-                  EmailField(),
+                  EmailForm(),
                   SizedBox(height: 8),
-                  PasswordField(),
-                  SizedBox(height: 16),
+                  PasswordForm(),
                 ],
               ),
             ),
+            const SizedBox(height: 30),
             SignButton(
               formKey: signInFormKey,
               text: 'Sign In',

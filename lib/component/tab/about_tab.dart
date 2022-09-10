@@ -1,5 +1,8 @@
-import '../../models/comic.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import '../../model/comic/comic.dart';
 
 class AboutTab extends StatelessWidget {
   const AboutTab({Key? key, required this.comic}) : super(key: key);

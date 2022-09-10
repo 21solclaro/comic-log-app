@@ -1,6 +1,11 @@
-import 'package:comic_log_app/widgets/state_tag.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import '../../component/state_tag.dart';
 
 part 'comic.freezed.dart';
 part 'comic.g.dart';
@@ -18,6 +23,7 @@ class Comic with _$Comic {
     required int endYear,
     required int rating,
     required SerializeState serializeState,
+    // @Default([]) List<Book> books,
   }) = _Comic;
 
   factory Comic.fromJson(Map<String, dynamic> json) => _$ComicFromJson(json);

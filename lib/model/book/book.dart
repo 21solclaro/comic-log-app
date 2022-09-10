@@ -1,7 +1,12 @@
-import 'date_time_converter.dart';
-import '../widgets/state_tag.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import '../../component/state_tag.dart';
+import '../../core/date_time_converter.dart';
 
 part 'book.freezed.dart';
 part 'book.g.dart';

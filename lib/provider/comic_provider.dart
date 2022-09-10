@@ -1,6 +1,9 @@
+// Package imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/comic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../model/comic/comic.dart';
 
 final comicStreamProvider = StreamProvider.autoDispose((_) {
   final snapshots = FirebaseFirestore.instance

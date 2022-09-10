@@ -1,9 +1,14 @@
-import '../../constants/color.dart';
-import '../../models/comic.dart';
-import '../../pages/comic_page.dart';
-import '../../providers/comic_provider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../../constant/color.dart';
+import '../../model/comic/comic.dart';
+import '../../pages/comic_page.dart';
+import '../../provider/comic_provider.dart';
 
 class GridCard extends ConsumerWidget {
   const GridCard({Key? key, required this.comic}) : super(key: key);
@@ -31,7 +36,7 @@ class GridCard extends ConsumerWidget {
                 width: 70,
                 child: comic.imgUrl == ''
                     ? Container(
-                        color: iconGrey,
+                        color: AppColor.iconGrey,
                       )
                     : Image(image: NetworkImage(comic.imgUrl)),
               ),

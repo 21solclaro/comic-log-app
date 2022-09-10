@@ -1,7 +1,13 @@
-import 'package:comic_log_app/models/chapter.dart';
-import 'package:comic_log_app/providers/chapter_provider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+// Project imports:
+import '../../model/chapter/chapter.dart';
+import '../../provider/chapter_provider.dart';
 
 class ChaptersTab extends ConsumerWidget {
   const ChaptersTab({Key? key}) : super(key: key);
@@ -23,17 +29,27 @@ class ChaptersTab extends ConsumerWidget {
   }
 }
 
-class ChapterCard extends ConsumerWidget {
+class ChapterCard extends StatelessWidget {
   const ChapterCard({Key? key, required this.chapter}) : super(key: key);
 
   final Chapter chapter;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return ListTile(
-      leading: Text('${chapter.volume}話'),
-      title: Text(chapter.chapterTitle),
-      trailing: chapter.chapterReadState.stateTag,
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showCupertinoModalBottomSheet(
+          context: context,
+          builder: (context) => Container(
+            height: 300,
+          ),
+        );
+      },
+      child: ListTile(
+        leading: Text('${chapter.volume}話'),
+        title: Text(chapter.chapterTitle),
+        trailing: chapter.chapterReadState.stateTag,
+      ),
     );
   }
 }

@@ -1,9 +1,14 @@
-import '../../constants/color.dart';
-import '../../models/comic.dart';
-import '../../pages/comic_page.dart';
-import '../../providers/comic_provider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../../constant/color.dart';
+import '../../model/comic/comic.dart';
+import '../../pages/comic_page.dart';
+import '../../provider/comic_provider.dart';
 
 class ListCard extends ConsumerWidget {
   const ListCard({Key? key, required this.comic}) : super(key: key);
@@ -32,7 +37,7 @@ class ListCard extends ConsumerWidget {
                 width: 40,
                 child: comic.imgUrl == ''
                     ? Container(
-                        color: iconGrey,
+                        color: AppColor.iconGrey,
                       )
                     : Image(image: NetworkImage(comic.imgUrl)),
               ),
@@ -53,12 +58,12 @@ class ListCard extends ConsumerWidget {
                         if (i > 0) ...{
                           Text(
                             '・${comic.author[i]}',
-                            style: TextStyle(color: iconGrey),
+                            style: const TextStyle(color: AppColor.iconGrey),
                           )
                         } else
                           Text(
                             comic.author[i],
-                            style: TextStyle(color: iconGrey),
+                            style: const TextStyle(color: AppColor.iconGrey),
                           )
                       }
                     ],

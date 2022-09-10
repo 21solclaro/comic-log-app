@@ -1,11 +1,15 @@
-import '../constants/color.dart';
-import '../providers/comic_provider.dart';
-import '../widgets/cards/grid_card.dart';
-import '../widgets/cards/list_card.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final isListViewProvider = StateProvider<bool>((ref) => true);
+// Project imports:
+import '../component/card/grid_card.dart';
+import '../component/card/list_card.dart';
+import '../constant/color.dart';
+import '../provider/collection_view_provider.dart';
+import '../provider/comic_provider.dart';
 
 class CollectionPage extends ConsumerWidget {
   const CollectionPage({Key? key}) : super(key: key);
@@ -13,27 +17,29 @@ class CollectionPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final comicStream = ref.watch(comicStreamProvider);
-    final isListView = ref.watch(isListViewProvider);
+    final collectionViewType = ref.watch(collectionViewProvider);
 
     return Scaffold(
         appBar: AppBar(
           actions: [
             IconButton(
-              color: isListView
+              color: collectionViewType == CollectionViewType.list
                   ? ThemeData().appBarTheme.actionsIconTheme?.color
-                  : iconGrey,
+                  : AppColor.iconGrey,
               icon: const Icon(Icons.list),
               onPressed: () {
-                ref.read(isListViewProvider.notifier).state = true;
+                ref.read(collectionViewProvider.notifier).state =
+                    CollectionViewType.list;
               },
             ),
             IconButton(
-              color: isListView
-                  ? iconGrey
+              color: collectionViewType == CollectionViewType.grid
+                  ? AppColor.iconGrey
                   : ThemeData().appBarTheme.actionsIconTheme?.color,
               icon: const Icon(Icons.grid_view),
               onPressed: () {
-                ref.read(isListViewProvider.notifier).state = false;
+                ref.read(collectionViewProvider.notifier).state =
+                    CollectionViewType.grid;
               },
             ),
           ],
@@ -42,7 +48,7 @@ class CollectionPage extends ConsumerWidget {
             loading: () => const CircularProgressIndicator(),
             error: (error, stack) => Text('Error: $error'),
             data: (comics) {
-              return isListView
+              return collectionViewType == CollectionViewType.list
                   ? ListView.builder(
                       itemCount: comics.length,
                       itemBuilder: ((context, index) {

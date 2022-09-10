@@ -1,20 +1,22 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:comic_log_app/pages/collection_page.dart';
+import '../provider/page_provider.dart';
 import 'profile_page.dart';
 import 'search_page.dart';
 import 'setting_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-enum PageType { home, search, profile, setting }
-
-final pageTypeProvider = StateProvider<PageType>((ref) => PageType.home);
 
 class RootPage extends ConsumerWidget {
   const RootPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageType = ref.watch(pageTypeProvider);
+    final pageType = ref.watch(pageProvider);
     final pages = [
       const CollectionPage(),
       const SearchPage(),
@@ -29,7 +31,7 @@ class RootPage extends ConsumerWidget {
           currentIndex: pageType.index,
           type: BottomNavigationBarType.fixed,
           onTap: (int selectIndex) {
-            ref.read(pageTypeProvider.notifier).state =
+            ref.read(pageProvider.notifier).state =
                 PageType.values[selectIndex];
           },
           items: const [

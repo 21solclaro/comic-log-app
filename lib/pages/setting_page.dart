@@ -1,13 +1,15 @@
-import 'package:comic_log_app/pages/root_page.dart';
-
-import '../constants/color.dart';
-import '../providers/theme_provider.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import '../providers/user_provider.dart';
+// Project imports:
+import '../constant/color.dart';
+import '../provider/page_provider.dart';
+import '../provider/theme_provider.dart';
 import 'start_page.dart';
 
 class SettingPage extends ConsumerWidget {
@@ -16,16 +18,16 @@ class SettingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDarkTheme = ref.watch(isDarkThemeProvider);
-    final sign = ref.watch(userStateNotifierProvider.notifier);
+    // final sign = ref.watch(userStateNotifierProvider.notifier);
 
     return SettingsList(
-      lightTheme: SettingsThemeData(
-        leadingIconsColor: iconGrey,
-        trailingTextColor: iconGrey,
+      lightTheme: const SettingsThemeData(
+        leadingIconsColor: AppColor.iconGrey,
+        trailingTextColor: AppColor.iconGrey,
       ),
-      darkTheme: SettingsThemeData(
-        leadingIconsColor: iconGrey,
-        trailingTextColor: iconGrey,
+      darkTheme: const SettingsThemeData(
+        leadingIconsColor: AppColor.iconGrey,
+        trailingTextColor: AppColor.iconGrey,
       ),
       contentPadding: const EdgeInsets.only(top: 60),
       sections: [
@@ -34,7 +36,9 @@ class SettingPage extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
               child: Container(
                 decoration: BoxDecoration(
-                    color: isDarkTheme ? dForegroundColor : lForegroundColor,
+                    color: isDarkTheme
+                        ? AppColor.dForegroundColor
+                        : AppColor.lForegroundColor,
                     borderRadius: BorderRadius.circular(14)),
                 height: 100,
                 child: Row(
@@ -82,7 +86,7 @@ class SettingPage extends ConsumerWidget {
             ),
             SettingsTile.switchTile(
               initialValue: isDarkTheme,
-              activeSwitchColor: dMainColor,
+              activeSwitchColor: AppColor.dMainColor,
               onToggle: (value) {
                 if (value) {
                   ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
@@ -112,13 +116,13 @@ class SettingPage extends ConsumerWidget {
                         CupertinoDialogAction(
                             child: const Text("OK"),
                             onPressed: () {
-                              sign.signOut();
+                              // sign.signOut();
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) {
                                   return const StartPage();
                                 },
                               ));
-                              ref.read(pageTypeProvider.notifier).state =
+                              ref.read(pageProvider.notifier).state =
                                   PageType.home;
                             })
                       ],

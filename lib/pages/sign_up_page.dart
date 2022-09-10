@@ -1,20 +1,21 @@
-import '../providers/sign_provider.dart';
-import '../providers/user_provider.dart';
-import '../widgets/buttons/custom_outlined_button.dart';
-import '../widgets/buttons/sign_button.dart';
-import '../widgets/sign_form.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../component/button/custom_outlined_button.dart';
+import '../component/button/sign_button.dart';
+import '../component/form/email_form.dart';
+import '../component/form/password_form.dart';
+import '../component/form/username_form.dart';
 
 class SignUpPage extends ConsumerWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sign = ref.watch(userStateNotifierProvider.notifier);
-    final username = ref.watch(usernameProvider);
-    final email = ref.watch(emailProvider);
-    final password = ref.watch(passwordProvider);
     final signUpFormKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -42,13 +43,10 @@ class SignUpPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 30),
-            SignButton(
-              formKey: signUpFormKey,
-              text: 'Sign Up',
-              errorMessage: '登録に失敗しました。',
-              function: () =>
-                  sign.signUp(username.text, email.text, password.text),
-            ),
+            SignUpButton(
+                formKey: signUpFormKey,
+                text: 'Sign Up',
+                errorMessage: '登録に失敗しました。'),
             const SizedBox(height: 10),
             CustomOutlinedButton(
                 text: 'Back', function: () => Navigator.pop(context))

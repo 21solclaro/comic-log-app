@@ -30,13 +30,13 @@ linter:
 
 analyzer:
   exclude:
-    - "lib/models/comic.g.dart"
-    - "lib/models/comic.freezed.dart"
-    - "lib/models/book.g.dart"
-    - "lib/models/book.freezed.dart"
-    - "lib/models/chapter.g.dart"
-    - "lib/models/chapter.freezed.dart"
-    - "lib/models/user.g.dart"
-    - "lib/models/user.freezed.dart"
+    - "lib/model/comic/comic.g.dart"
+    - "lib/model/comic/comic.freezed.dart"
+    - "lib/model/book/book.g.dart"
+    - "lib/model/book/book.freezed.dart"
+    - "lib/model/chapter/chapter.g.dart"
+    - "lib/model/chapter/chapter.freezed.dart"
+    - "lib/model/user/user.g.dart"
+    - "lib/model/user/user.freezed.dart"
   errors:
     invalid_annotation_target: ignore

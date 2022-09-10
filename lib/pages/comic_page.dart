@@ -1,11 +1,16 @@
-import '../models/comic.dart';
-import '../widgets/comic_header.dart';
-import '../widgets/tabs/about_tab.dart';
-import '../widgets/tabs/books_tab.dart';
-import '../widgets/tabs/chapters_tab.dart';
-import '../widgets/tabs/related_works_tab.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../component/comic_header.dart';
+import '../component/tab/about_tab.dart';
+import '../component/tab/books_tab.dart';
+import '../component/tab/chapters_tab.dart';
+import '../component/tab/related_works_tab.dart';
+import '../model/comic/comic.dart';
 
 class ComicPage extends ConsumerWidget {
   const ComicPage({Key? key, required this.comic}) : super(key: key);

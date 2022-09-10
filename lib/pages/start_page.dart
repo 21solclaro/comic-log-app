@@ -1,8 +1,11 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
+import '../component/button/custom_outlined_button.dart';
+import '../component/button/cutom_elevated_button.dart';
 import 'sign_in_page.dart';
 import 'sign_up_page.dart';
-import '../widgets/buttons/custom_outlined_button.dart';
-import '../widgets/buttons/cutom_elevated_button.dart';
-import 'package:flutter/material.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);

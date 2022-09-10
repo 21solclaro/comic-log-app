@@ -1,19 +1,20 @@
-import 'package:comic_log_app/providers/user_provider.dart';
-import '../providers/sign_provider.dart';
-import '../widgets/buttons/custom_outlined_button.dart';
-import '../widgets/buttons/sign_button.dart';
-import '../widgets/sign_form.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
+import '../component/button/custom_outlined_button.dart';
+import '../component/button/sign_button.dart';
+import '../component/form/email_form.dart';
+import '../component/form/password_form.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sign = ref.watch(userStateNotifierProvider.notifier);
-    final email = ref.watch(emailProvider);
-    final password = ref.watch(passwordProvider);
     final signInFormKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -39,12 +40,10 @@ class SignInPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 30),
-            SignButton(
-              formKey: signInFormKey,
-              text: 'Sign In',
-              errorMessage: 'ログインに失敗しました。',
-              function: () => sign.signIn(email.text, password.text),
-            ),
+            SignInButton(
+                formKey: signInFormKey,
+                text: 'Sign In',
+                errorMessage: 'ログインに失敗しました。'),
             const SizedBox(height: 10),
             CustomOutlinedButton(
                 text: 'Back', function: () => Navigator.pop(context))

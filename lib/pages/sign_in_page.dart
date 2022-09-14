@@ -9,6 +9,8 @@ import '../component/button/custom_outlined_button.dart';
 import '../component/button/sign_button.dart';
 import '../component/form/email_form.dart';
 import '../component/form/password_form.dart';
+import '../provider/sign_provider.dart';
+import '../provider/user_provider.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -16,6 +18,8 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final signInFormKey = GlobalKey<FormState>();
+    final email = ref.watch(emailProvider);
+    final password = ref.watch(passwordProvider);
 
     return Scaffold(
       body: Padding(
@@ -40,10 +44,16 @@ class SignInPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 30),
-            SignInButton(
+            SignButton(
                 formKey: signInFormKey,
                 text: 'Sign In',
-                errorMessage: 'ログインに失敗しました。'),
+                function: () => ref
+                    .read(userStateNotifierProvider.notifier)
+                    .signIn(
+                        context: context,
+                        email: email,
+                        password: password,
+                        errorMessage: 'ログインに失敗しました。')),
             const SizedBox(height: 10),
             CustomOutlinedButton(
                 text: 'Back', function: () => Navigator.pop(context))

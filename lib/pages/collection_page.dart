@@ -34,8 +34,8 @@ class CollectionPage extends ConsumerWidget {
             ),
             IconButton(
               color: collectionViewType == CollectionViewType.grid
-                  ? AppColor.iconGrey
-                  : ThemeData().appBarTheme.actionsIconTheme?.color,
+                  ? ThemeData().appBarTheme.actionsIconTheme?.color
+                  : AppColor.iconGrey,
               icon: const Icon(Icons.grid_view),
               onPressed: () {
                 ref.read(collectionViewProvider.notifier).state =

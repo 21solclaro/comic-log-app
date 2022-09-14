@@ -27,11 +27,13 @@ class SignInPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('HELLO',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                )),
+            const Text(
+              'HELLO',
+              style: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             const SizedBox(height: 40),
             Form(
               key: signInFormKey,
@@ -45,18 +47,20 @@ class SignInPage extends ConsumerWidget {
             ),
             const SizedBox(height: 30),
             SignButton(
-                formKey: signInFormKey,
-                text: 'Sign In',
-                function: () => ref
-                    .read(userStateNotifierProvider.notifier)
-                    .signIn(
+              formKey: signInFormKey,
+              text: 'Sign In',
+              function: () =>
+                  ref.read(userStateNotifierProvider.notifier).signIn(
                         context: context,
                         email: email,
                         password: password,
-                        errorMessage: 'ログインに失敗しました。')),
+                      ),
+            ),
             const SizedBox(height: 10),
             CustomOutlinedButton(
-                text: 'Back', function: () => Navigator.pop(context))
+              text: 'Back',
+              function: () => Navigator.pop(context),
+            ),
           ],
         ),
       ),

@@ -29,11 +29,13 @@ class SignUpPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('WELCOME',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                )),
+            const Text(
+              'WELCOME',
+              style: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             const SizedBox(height: 40),
             Form(
               key: signUpFormKey,
@@ -57,12 +59,13 @@ class SignUpPage extends ConsumerWidget {
                         email: email,
                         password: password,
                         username: username,
-                        errorMessage: '登録に失敗しました。',
                       ),
             ),
             const SizedBox(height: 10),
             CustomOutlinedButton(
-                text: 'Back', function: () => Navigator.pop(context))
+              text: 'Back',
+              function: () => Navigator.pop(context),
+            ),
           ],
         ),
       ),

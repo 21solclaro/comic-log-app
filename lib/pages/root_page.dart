@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project imports:
 import 'package:comic_log_app/pages/collection_page.dart';
 import '../provider/page_provider.dart';
-import 'profile_page.dart';
+import 'data_page.dart';
 import 'search_page.dart';
 import 'setting_page.dart';
 
@@ -20,7 +20,7 @@ class RootPage extends ConsumerWidget {
     final pages = [
       const CollectionPage(),
       const SearchPage(),
-      const ProfilePage(),
+      const DataPage(),
       const SettingPage(),
     ];
     return WillPopScope(
@@ -36,14 +36,21 @@ class RootPage extends ConsumerWidget {
           },
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.collections_bookmark_outlined),
-                label: 'collection'),
+              icon: Icon(Icons.collections_bookmark_outlined),
+              label: 'collection',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.search_outlined), label: 'search'),
+              icon: Icon(Icons.search_outlined),
+              label: 'search',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined), label: 'profile'),
+              icon: Icon(Icons.line_axis),
+              label: 'data',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined), label: 'settings'),
+              icon: Icon(Icons.settings_outlined),
+              label: 'settings',
+            ),
           ],
         ),
       ),

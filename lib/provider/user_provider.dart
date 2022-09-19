@@ -71,6 +71,14 @@ class UserStateNotifier extends StateNotifier<User?> {
     ref.read(pageProvider.notifier).state = PageType.home;
     state = null;
   }
+
+  //ユーザープロフィールをアップデート
+  void updateUser(
+      {required User user, String? userImg, String? username}) async {
+    state = await ref
+        .read(userRepositoryProvider)
+        .updateUserInfo(user: user, userImg: userImg, username: username);
+  }
 }
 
 final userStateNotifierProvider =

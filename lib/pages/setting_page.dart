@@ -8,9 +8,9 @@ import 'package:settings_ui/settings_ui.dart';
 
 // Project imports:
 import '../constant/color.dart';
-import '../provider/page_provider.dart';
 import '../provider/theme_provider.dart';
-import 'start_page.dart';
+import '../provider/user_provider.dart';
+import 'user_edit_page.dart';
 
 class SettingPage extends ConsumerWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class SettingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDarkTheme = ref.watch(isDarkThemeProvider);
-    // final sign = ref.watch(userStateNotifierProvider.notifier);
+    final user = ref.watch(userStateNotifierProvider);
 
     return SettingsList(
       lightTheme: const SettingsThemeData(
@@ -42,8 +42,8 @@ class SettingPage extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(14)),
                 height: 100,
                 child: Row(
-                  children: const <Widget>[
-                    Padding(
+                  children: <Widget>[
+                    const Padding(
                       padding: EdgeInsets.only(left: 16, right: 20),
                       child: CircleAvatar(
                         backgroundColor: Colors.blueGrey,
@@ -51,9 +51,11 @@ class SettingPage extends ConsumerWidget {
                       ),
                     ),
                     Text(
-                      'Hello World',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      user?.username != null ? user!.username : 'hello',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     )
                   ],
                 ),
@@ -63,6 +65,9 @@ class SettingPage extends ConsumerWidget {
           title: const Text('Profile'),
           tiles: <SettingsTile>[
             SettingsTile.navigation(
+              onPressed: (context) => Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) => const UserEditPage())),
               leading: const Icon(Icons.person),
               title: const Text('User Name'),
             ),
@@ -114,17 +119,13 @@ class SettingPage extends ConsumerWidget {
                           onPressed: () => Navigator.pop(context),
                         ),
                         CupertinoDialogAction(
-                            child: const Text("OK"),
-                            onPressed: () {
-                              // sign.signOut();
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return const StartPage();
-                                },
-                              ));
-                              ref.read(pageProvider.notifier).state =
-                                  PageType.home;
-                            })
+                          child: const Text("OK"),
+                          onPressed: () {
+                            ref
+                                .read(userStateNotifierProvider.notifier)
+                                .signOut(context);
+                          },
+                        )
                       ],
                     );
                   },

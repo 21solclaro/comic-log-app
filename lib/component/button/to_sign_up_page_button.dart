@@ -1,13 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class CustomOutlinedButton extends StatelessWidget {
-  const CustomOutlinedButton(
-      {Key? key, required this.text, required this.function})
-      : super(key: key);
+// Project imports:
+import '../../pages/sign_up_page.dart';
 
-  final String text;
-  final Function function;
+class ToSignUpPageButton extends BackButton {
+  const ToSignUpPageButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +13,15 @@ class CustomOutlinedButton extends StatelessWidget {
       height: 50,
       width: double.infinity,
       child: OutlinedButton(
-        onPressed: () {
-          function();
-        },
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const SignUpPage())),
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.black,
           shape: const StadiumBorder(),
           textStyle: const TextStyle(fontWeight: FontWeight.bold),
           side: const BorderSide(color: Colors.black, width: 1.0),
         ),
-        child: Text(text),
+        child: const Text('新規登録する'),
       ),
     );
   }

@@ -1,13 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton(
-      {Key? key, required this.text, required this.function})
-      : super(key: key);
+// Project imports:
+import '../../pages/sign_in_page.dart';
 
-  final String text;
-  final Function function;
+class ToSignInPageButton extends StatelessWidget {
+  const ToSignInPageButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +13,14 @@ class CustomElevatedButton extends StatelessWidget {
       height: 50,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {
-          function();
-        },
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const SignInPage())),
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
           shape: const StadiumBorder(),
           textStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        child: Text(text),
+        child: const Text('ログインする'),
       ),
     );
   }

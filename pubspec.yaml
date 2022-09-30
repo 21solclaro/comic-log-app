@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^3.7.0
   firebase_core: ^1.21.1
 
+  flutter_launcher_icons: ^0.10.0
   flutter_rating_bar: ^4.0.1
   image_picker: ^0.8.5+3
   import_sorter: ^4.6.0
@@ -103,3 +104,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon_ios.png"
+  adaptive_icon_foreground: "assets/icon/icon_android.png"
+  adaptive_icon_background: "#46B4EB"

@@ -37,11 +37,12 @@ dependencies:
   flutter_riverpod: ^1.0.4
   freezed_annotation: ^2.0.3
 
-  cloud_firestore: ^3.4.6
-  firebase_auth: ^3.7.0
-  firebase_core: ^1.21.1
+  cloud_firestore: ^3.5.0
+  firebase_auth: ^3.11.0
+  firebase_core: ^1.24.0
 
   flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.10+1
   flutter_rating_bar: ^4.0.1
   image_picker: ^0.8.5+3
   import_sorter: ^4.6.0
@@ -111,3 +112,8 @@ flutter_icons:
   image_path: "assets/icon/icon_ios.png"
   adaptive_icon_foreground: "assets/icon/icon_android.png"
   adaptive_icon_background: "#46B4EB"
+
+flutter_native_splash:
+  color: "#ffddaa"
+  image: "assets/splash/splash_icon.png"
+  fullscreen: true

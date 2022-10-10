@@ -14,7 +14,7 @@ abstract class Validator {
     String pattern = r'^[a-zA-Z0-9]{6,}$';
     RegExp regExp = RegExp(pattern);
     if (!regExp.hasMatch(value)) {
-      return 'パスワードは６文字以上の英数字を入力してください。';
+      return 'パスワードは6文字以上の英数字を入力してください。';
     }
     return null;
   }
@@ -24,7 +24,7 @@ abstract class Validator {
     String pattern = r'^[a-zA-Z0-9]{3,}$';
     RegExp regExp = RegExp(pattern);
     if (!regExp.hasMatch(value)) {
-      return 'ユーザーネームは３文字以上の英数字を入力してください。';
+      return 'ユーザーネームは3文字以上の英数字を入力してください。';
     }
     return null;
   }

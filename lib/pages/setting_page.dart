@@ -1,15 +1,12 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:settings_ui/settings_ui.dart';
 
 // Project imports:
-import '../constant/color.dart';
-import '../provider/theme_provider.dart';
-import '../provider/user_provider.dart';
+import '../component/button/sign_out_button.dart';
+import '../component/button/theme_switch.dart';
 import 'user_edit_page.dart';
 
 class SettingPage extends ConsumerWidget {
@@ -17,126 +14,91 @@ class SettingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isDarkTheme = ref.watch(isDarkThemeProvider);
-    final user = ref.watch(userStateNotifierProvider);
-
-    return SettingsList(
-      lightTheme: const SettingsThemeData(
-        leadingIconsColor: AppColor.iconGrey,
-        trailingTextColor: AppColor.iconGrey,
-      ),
-      darkTheme: const SettingsThemeData(
-        leadingIconsColor: AppColor.iconGrey,
-        trailingTextColor: AppColor.iconGrey,
-      ),
-      contentPadding: const EdgeInsets.only(top: 60),
-      sections: [
-        CustomSettingsSection(
-          child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: isDarkTheme
-                        ? AppColor.dForegroundColor
-                        : AppColor.lForegroundColor,
-                    borderRadius: BorderRadius.circular(14)),
-                height: 100,
-                child: Row(
-                  children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.only(left: 16, right: 20),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.blueGrey,
-                        maxRadius: 36,
-                      ),
+    return Scaffold(
+        body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 80),
+            child: Row(
+              children: const <Widget>[
+                CircleAvatar(
+                  backgroundColor: Colors.black,
+                  radius: 50,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 48,
+                    child: Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Colors.black,
                     ),
-                    Text(
-                      user?.username != null ? user!.username : 'hello',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              )),
-        ),
-        SettingsSection(
-          title: const Text('Profile'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              onPressed: (context) => Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => const UserEditPage())),
-              leading: const Icon(Icons.person),
-              title: const Text('User Name'),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'HELLO',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                )
+              ],
             ),
-            SettingsTile.navigation(
-              leading: const Icon(Icons.email),
-              title: const Text('E-mail'),
-            ),
-            SettingsTile.navigation(
-              leading: const Icon(Icons.password),
-              title: const Text('Password'),
-            ),
-          ],
-        ),
-        SettingsSection(
-          title: const Text('Application'),
-          tiles: [
-            SettingsTile.navigation(
-              leading: const Icon(Icons.language),
-              title: const Text('Language'),
-              value: const Text('English'),
-            ),
-            SettingsTile.switchTile(
-              initialValue: isDarkTheme,
-              activeSwitchColor: AppColor.dMainColor,
-              onToggle: (value) {
-                if (value) {
-                  ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
-                } else {
-                  ref.read(themeModeProvider.notifier).state = ThemeMode.light;
-                }
-              },
-              title: const Text('Dark Theme'),
-              leading: const Icon(Icons.dark_mode),
-            )
-          ],
-        ),
-        SettingsSection(
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              onPressed: (context) {
-                showCupertinoDialog(
-                  context: context,
-                  builder: (context) {
-                    return CupertinoAlertDialog(
-                      title: const Text('Sign out?'),
-                      actions: [
-                        CupertinoDialogAction(
-                          child: const Text("Cancel"),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        CupertinoDialogAction(
-                          child: const Text("OK"),
-                          onPressed: () {
-                            ref
-                                .read(userStateNotifierProvider.notifier)
-                                .signOut(context);
-                          },
-                        )
-                      ],
-                    );
-                  },
-                );
-              },
-              leading: const Icon(Icons.logout),
-              title: const Text('Sign Out'),
-            ),
-          ],
-        ),
-      ],
-    );
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            'Account',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const Divider(
+            thickness: 2,
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('User Name'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const UserEditPage())),
+          ),
+          const ListTile(
+            leading: Icon(Icons.email),
+            title: Text('Email'),
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          const ListTile(
+            leading: Icon(Icons.password),
+            title: Text('Password'),
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'System',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const Divider(
+            thickness: 2,
+          ),
+          const ListTile(
+            leading: Icon(Icons.language),
+            title: Text('Language'),
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          const ThemeSwitch(),
+          const SizedBox(
+            height: 20,
+          ),
+          const Divider(
+            thickness: 2,
+          ),
+          const SignOutButton(),
+        ],
+      ),
+    ));
   }
 }

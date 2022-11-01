@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../pages/sign_in_page.dart';
 
 class ToSignInPageButton extends StatelessWidget {
-  const ToSignInPageButton({Key? key}) : super(key: key);
+  const ToSignInPageButton({super.key});
 
   @override
   Widget build(BuildContext context) {

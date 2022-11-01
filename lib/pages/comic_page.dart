@@ -13,7 +13,7 @@ import '../component/tab/related_works_tab.dart';
 import '../model/comic/comic.dart';
 
 class ComicPage extends ConsumerWidget {
-  const ComicPage({Key? key, required this.comic}) : super(key: key);
+  const ComicPage({super.key, required this.comic});
 
   final Comic comic;
 

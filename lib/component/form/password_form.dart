@@ -9,7 +9,7 @@ import '../../provider/sign_provider.dart';
 import '../../ui_core/validator.dart';
 
 class PasswordForm extends ConsumerWidget {
-  const PasswordForm({Key? key}) : super(key: key);
+  const PasswordForm({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

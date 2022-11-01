@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../pages/sign_up_page.dart';
 
 class ToSignUpPageButton extends BackButton {
-  const ToSignUpPageButton({Key? key}) : super(key: key);
+  const ToSignUpPageButton({super.key});
 
   @override
   Widget build(BuildContext context) {

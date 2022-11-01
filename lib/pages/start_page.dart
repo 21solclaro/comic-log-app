@@ -9,7 +9,7 @@ import '../component/button/to_sign_in_page_button.dart';
 import '../component/button/to_sign_up_page_button.dart';
 
 class StartPage extends StatelessWidget {
-  const StartPage({Key? key}) : super(key: key);
+  const StartPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import '../../model/book/book.dart';
 import '../../provider/book_provider.dart';
 
 class BooksTab extends ConsumerWidget {
-  const BooksTab({Key? key}) : super(key: key);
+  const BooksTab({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

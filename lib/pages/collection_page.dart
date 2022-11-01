@@ -12,7 +12,7 @@ import '../provider/collection_view_provider.dart';
 import '../provider/comic_provider.dart';
 
 class CollectionPage extends ConsumerWidget {
-  const CollectionPage({Key? key}) : super(key: key);
+  const CollectionPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

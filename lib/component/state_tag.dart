@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 
 class StateTag extends StatelessWidget {
-  const StateTag({Key? key, required this.stateText, required this.color})
-      : super(key: key);
+  const StateTag({super.key, required this.stateText, required this.color});
 
   final String stateText;
   final Color color;

@@ -10,7 +10,7 @@ import '../../model/chapter/chapter.dart';
 import '../../provider/chapter_provider.dart';
 
 class ChaptersTab extends ConsumerWidget {
-  const ChaptersTab({Key? key}) : super(key: key);
+  const ChaptersTab({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

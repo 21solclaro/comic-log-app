@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../model/comic/comic.dart';
 
 class AboutTab extends StatelessWidget {
-  const AboutTab({Key? key, required this.comic}) : super(key: key);
+  const AboutTab({super.key, required this.comic});
 
   final Comic comic;
 

@@ -9,7 +9,7 @@ import '../../provider/sign_provider.dart';
 import '../../provider/user_provider.dart';
 
 class SaveButton extends ConsumerWidget {
-  const SaveButton({Key? key}) : super(key: key);
+  const SaveButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

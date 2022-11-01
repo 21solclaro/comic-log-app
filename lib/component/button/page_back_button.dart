@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class PageBackButton extends StatelessWidget {
-  const PageBackButton({Key? key}) : super(key: key);
+  const PageBackButton({super.key});
 
   @override
   Widget build(BuildContext context) {

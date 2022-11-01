@@ -12,7 +12,7 @@ import 'search_page.dart';
 import 'setting_page.dart';
 
 class RootPage extends ConsumerWidget {
-  const RootPage({Key? key}) : super(key: key);
+  const RootPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

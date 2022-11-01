@@ -9,7 +9,7 @@ import '../../provider/sign_provider.dart';
 import '../../ui_core/validator.dart';
 
 class EmailForm extends ConsumerWidget {
-  const EmailForm({Key? key}) : super(key: key);
+  const EmailForm({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

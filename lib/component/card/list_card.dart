@@ -11,7 +11,7 @@ import '../../pages/comic_page.dart';
 import '../../provider/comic_provider.dart';
 
 class ListCard extends ConsumerWidget {
-  const ListCard({Key? key, required this.comic}) : super(key: key);
+  const ListCard({super.key, required this.comic});
 
   final Comic comic;
 

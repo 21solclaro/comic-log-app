@@ -9,7 +9,7 @@ import '../constant/color.dart';
 import '../model/comic/comic.dart';
 
 class ComicHeader extends StatelessWidget {
-  const ComicHeader({Key? key, required this.comic}) : super(key: key);
+  const ComicHeader({super.key, required this.comic});
 
   final Comic comic;
 

@@ -11,7 +11,7 @@ import '../../pages/comic_page.dart';
 import '../../provider/comic_provider.dart';
 
 class GridCard extends ConsumerWidget {
-  const GridCard({Key? key, required this.comic}) : super(key: key);
+  const GridCard({super.key, required this.comic});
 
   final Comic comic;
 

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../component/card/grid_card.dart';
-import '../component/card/list_card.dart';
+import '../component/collection_page/grid_card.dart';
+import '../component/collection_page/list_card.dart';
 import '../constant/color.dart';
 import '../provider/collection_view_provider.dart';
 import '../provider/comic_provider.dart';

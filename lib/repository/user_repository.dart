@@ -41,15 +41,13 @@ class UserRepository {
     return user;
   }
 
-  //ユーザー情報をアップデート
-  Future<User> updateUserInfo({
+  //ユーザー名をアップデート
+  Future<User> updateUsername({
     required User user,
-    String? userImg,
-    String? username,
+    required String username,
   }) async {
     final updatedUser = user.copyWith(
-      userImg: userImg ?? user.userImg,
-      username: username ?? user.username,
+      username: username,
       updatedAt: DateTime.now(),
     );
     await read(firebaseFirestoreProvider)
@@ -58,6 +56,24 @@ class UserRepository {
         .update(updatedUser.toJson());
     return updatedUser;
   }
+
+  // //ユーザー情報をアップデート
+  // Future<User> updateUserInfo({
+  //   required User user,
+  //   String? userImg,
+  //   String? username,
+  // }) async {
+  //   final updatedUser = user.copyWith(
+  //     userImg: userImg ?? user.userImg,
+  //     username: username ?? user.username,
+  //     updatedAt: DateTime.now(),
+  //   );
+  //   await read(firebaseFirestoreProvider)
+  //       .collection('users')
+  //       .doc(user.uid)
+  //       .update(updatedUser.toJson());
+  //   return updatedUser;
+  // }
 
   //ユーザー情報を削除
   Future<void> deleteUserInfo({required String uid}) async {

@@ -72,12 +72,15 @@ class UserStateNotifier extends StateNotifier<User?> {
     state = null;
   }
 
-  //ユーザープロフィールをアップデート
-  void updateUser(
-      {required User user, String? userImg, String? username}) async {
+  //ユーザー名をアップデート
+  void updateUsername({
+    required User user,
+    required TextEditingController username,
+  }) async {
     state = await ref
         .read(userRepositoryProvider)
-        .updateUserInfo(user: user, userImg: userImg, username: username);
+        .updateUsername(user: user, username: username.text);
+    username.clear();
   }
 }
 

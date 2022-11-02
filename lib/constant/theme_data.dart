@@ -5,17 +5,18 @@ import 'package:flutter/material.dart';
 import 'color.dart';
 
 final ThemeData lightThemeData = ThemeData.light().copyWith(
-  scaffoldBackgroundColor: AppColor.lBackgroundColor,
+  scaffoldBackgroundColor: AppColor.lightColor,
   appBarTheme: const AppBarTheme(
       actionsIconTheme: IconThemeData(color: AppColor.lMainColor),
-      backgroundColor: AppColor.lForegroundColor),
+      backgroundColor: AppColor.lightColor),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: AppColor.lForegroundColor,
+    backgroundColor: AppColor.lightColor,
     selectedItemColor: AppColor.lMainColor,
     unselectedItemColor: AppColor.iconGrey,
     showUnselectedLabels: false,
+    elevation: 0,
   ),
-  cardTheme: const CardTheme(color: AppColor.lForegroundColor),
+  cardTheme: const CardTheme(color: AppColor.lightColor),
   listTileTheme: const ListTileThemeData(iconColor: AppColor.iconGrey),
   tabBarTheme: const TabBarTheme(
       indicator: BoxDecoration(
@@ -29,17 +30,18 @@ final ThemeData lightThemeData = ThemeData.light().copyWith(
 );
 
 final ThemeData darkThemeData = ThemeData.dark().copyWith(
-  scaffoldBackgroundColor: AppColor.dBackgroundColor,
+  scaffoldBackgroundColor: AppColor.darkColor,
   appBarTheme: const AppBarTheme(
       actionsIconTheme: IconThemeData(color: AppColor.dMainColor),
-      backgroundColor: AppColor.dForegroundColor),
+      backgroundColor: AppColor.darkColor),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: AppColor.dForegroundColor,
+    backgroundColor: AppColor.darkColor,
     selectedItemColor: AppColor.dMainColor,
     unselectedItemColor: AppColor.iconGrey,
     showUnselectedLabels: false,
+    elevation: 0,
   ),
-  cardTheme: const CardTheme(color: AppColor.dForegroundColor),
+  cardTheme: const CardTheme(color: AppColor.darkColor),
   listTileTheme: const ListTileThemeData(iconColor: AppColor.iconGrey),
   tabBarTheme: const TabBarTheme(
       indicator: BoxDecoration(

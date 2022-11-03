@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:comic_log_app/pages/collection_page.dart';
+import 'package:comic_log_app/page/collection_page.dart';
 import '../provider/page_provider.dart';
 import 'data_page.dart';
 import 'search_page.dart';

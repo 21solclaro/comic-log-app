@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project imports:
 import '../../constant/color.dart';
 import '../../model/comic/comic.dart';
-import '../../pages/comic_page.dart';
+import '../../page/comic_page.dart';
 import '../../provider/comic_provider.dart';
 
 class GridCard extends ConsumerWidget {

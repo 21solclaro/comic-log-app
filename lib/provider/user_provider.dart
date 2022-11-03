@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import '../model/user/user.dart';
-import '../pages/root_page.dart';
-import '../pages/start_page.dart';
+import '../page/root_page.dart';
+import '../page/start_page.dart';
 import '../repository/auth_repository.dart';
 import '../repository/user_repository.dart';
 import 'page_provider.dart';

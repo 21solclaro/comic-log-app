@@ -7,8 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'constant/theme_data.dart';
-import 'pages/root_page.dart';
-import 'pages/start_page.dart';
+import 'page/root_page.dart';
+import 'page/start_page.dart';
 import 'provider/theme_provider.dart';
 
 class App extends ConsumerWidget {

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
+import '../../component/button/custom_elevated_button.dart';
 import '../../provider/user_provider.dart';
-import '../button/custom_elevated_button.dart';
 
 class SignOutModal extends ConsumerWidget {
   const SignOutModal({super.key});

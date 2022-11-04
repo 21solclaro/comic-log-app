@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../component/button/custom_elevated_button.dart';
-import '../component/button/custom_outlined_button.dart';
-import '../component/form/email_form.dart';
-import '../component/form/password_form.dart';
-import '../component/form/username_form.dart';
-import '../provider/sign_provider.dart';
-import '../provider/user_provider.dart';
+import '../../component/button/custom_elevated_button.dart';
+import '../../component/button/custom_outlined_button.dart';
+import '../../component/form/email_form.dart';
+import '../../component/form/password_form.dart';
+import '../../provider/sign_provider.dart';
+import '../../provider/user_provider.dart';
 
-class SignUpPage extends ConsumerWidget {
-  const SignUpPage({super.key});
+class SignInPage extends ConsumerWidget {
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +24,7 @@ class SignUpPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'WELCOME',
+              'HELLO',
               style: TextStyle(
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
@@ -36,14 +35,12 @@ class SignUpPage extends ConsumerWidget {
             const EmailForm(),
             const SizedBox(height: 8),
             const PasswordForm(),
-            const SizedBox(height: 8),
-            const UsernameForm(),
             const SizedBox(height: 30),
-            //新規登録ボタン
+            //サインインボタン
             CustomElevatedButton(
-              label: 'Sign Up',
+              label: 'Sign In',
               color: Colors.black,
-              onPressed: () => signUp(context, ref),
+              onPressed: () => signIn(context, ref),
             ),
             const SizedBox(height: 10),
             CustomOutlinedButton(
@@ -56,17 +53,15 @@ class SignUpPage extends ConsumerWidget {
     );
   }
 
-  //新規登録
-  Future<void> signUp(BuildContext context, WidgetRef ref) async {
+  //サインイン
+  void signIn(BuildContext context, WidgetRef ref) {
     final email = ref.watch(emailProvider);
     final password = ref.watch(passwordProvider);
-    final username = ref.watch(usernameProvider);
 
-    ref.read(userStateNotifierProvider.notifier).signUp(
+    ref.read(userStateNotifierProvider.notifier).signIn(
           context: context,
           email: email,
           password: password,
-          username: username,
         );
   }
 }

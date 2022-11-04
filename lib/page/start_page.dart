@@ -7,8 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 // Project imports:
 import '../component/button/custom_elevated_button.dart';
 import '../component/button/custom_outlined_button.dart';
-import 'sign_in_page.dart';
-import 'sign_up_page.dart';
+import 'sign_page/sign_in_page.dart';
+import 'sign_page/sign_up_page.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});

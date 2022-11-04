@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 // Project imports:
-import '../constant/color.dart';
-import '../model/comic/comic.dart';
+import '../../constant/color.dart';
+import '../../model/comic/comic.dart';
 
 class ComicHeader extends StatelessWidget {
   const ComicHeader({super.key, required this.comic});

@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../component/button/custom_elevated_button.dart';
-import '../component/button/custom_outlined_button.dart';
-import '../component/form/email_form.dart';
-import '../component/form/password_form.dart';
-import '../provider/sign_provider.dart';
-import '../provider/user_provider.dart';
+import '../../component/button/custom_elevated_button.dart';
+import '../../component/button/custom_outlined_button.dart';
+import '../../component/form/email_form.dart';
+import '../../component/form/password_form.dart';
+import '../../component/form/username_form.dart';
+import '../../provider/sign_provider.dart';
+import '../../provider/user_provider.dart';
 
-class SignInPage extends ConsumerWidget {
-  const SignInPage({super.key});
+class SignUpPage extends ConsumerWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,7 +25,7 @@ class SignInPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'HELLO',
+              'WELCOME',
               style: TextStyle(
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
@@ -35,12 +36,14 @@ class SignInPage extends ConsumerWidget {
             const EmailForm(),
             const SizedBox(height: 8),
             const PasswordForm(),
+            const SizedBox(height: 8),
+            const UsernameForm(),
             const SizedBox(height: 30),
-            //サインインボタン
+            //新規登録ボタン
             CustomElevatedButton(
-              label: 'Sign In',
+              label: 'Sign Up',
               color: Colors.black,
-              onPressed: () => signIn(context, ref),
+              onPressed: () => signUp(context, ref),
             ),
             const SizedBox(height: 10),
             CustomOutlinedButton(
@@ -53,15 +56,17 @@ class SignInPage extends ConsumerWidget {
     );
   }
 
-  //サインイン
-  void signIn(BuildContext context, WidgetRef ref) {
+  //新規登録
+  Future<void> signUp(BuildContext context, WidgetRef ref) async {
     final email = ref.watch(emailProvider);
     final password = ref.watch(passwordProvider);
+    final username = ref.watch(usernameProvider);
 
-    ref.read(userStateNotifierProvider.notifier).signIn(
+    ref.read(userStateNotifierProvider.notifier).signUp(
           context: context,
           email: email,
           password: password,
+          username: username,
         );
   }
 }

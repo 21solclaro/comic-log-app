@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../component/setting_page/sign_out_modal.dart';
-import '../component/setting_page/theme_switch.dart';
-import '../component/setting_page/user_info_card.dart';
-import '../component/setting_page/username_modal.dart';
+import 'sign_out_modal.dart';
+import 'theme_switch.dart';
+import 'user_info_card.dart';
+import 'username_modal.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});

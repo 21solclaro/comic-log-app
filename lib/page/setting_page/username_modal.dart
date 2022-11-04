@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
+import '../../component/button/custom_elevated_button.dart';
+import '../../component/form/username_form.dart';
 import '../../provider/sign_provider.dart';
 import '../../provider/user_provider.dart';
 import '../../repository/user_repository.dart';
-import '../button/custom_elevated_button.dart';
-import '../form/username_form.dart';
 
 class UsernameModal extends ConsumerWidget {
   const UsernameModal({super.key});

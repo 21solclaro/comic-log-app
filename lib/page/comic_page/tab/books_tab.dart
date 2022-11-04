@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
-import '../../model/book/book.dart';
-import '../../provider/book_provider.dart';
+import '../../../model/book/book.dart';
+import '../../../provider/book_provider.dart';
 
 class BooksTab extends ConsumerWidget {
   const BooksTab({super.key});

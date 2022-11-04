@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:comic_log_app/page/collection_page.dart';
 import '../provider/page_provider.dart';
-import 'data_page.dart';
-import 'search_page.dart';
-import 'setting_page.dart';
+import 'collection_page/collection_page.dart';
+import 'data_page/data_page.dart';
+import 'search_page/search_page.dart';
+import 'setting_page/setting_page.dart';
 
 class RootPage extends ConsumerWidget {
   const RootPage({super.key});
